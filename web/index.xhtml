@@ -1,11 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>NEWS</title>
-        <h:outputStylesheet name="style.css"/>
+        
+            
+        
     </h:head>
     <h:body>
         <div id="container">
@@ -20,9 +24,20 @@
             </ul>
         </nav>
         </div>
+        
         <h:form>
             <h:commandButton value="Create User" action="CreateUser" />
+            
         </h:form>
+        <h:column>
+            <f:facet name="header">
+                
+                <h:outputText value="Users" />
+            </f:facet>
+            <h:outputText value="#{loginControler.listadenomes("tiago")}" />
+        </h:column>
+        <p><a href="teste.xhtml"> Pagina teste, remover mais tarde </a> </p>
+        
     </h:body>
 </html>
 

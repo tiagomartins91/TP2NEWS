@@ -30,14 +30,9 @@ public class LoginBean {
         return create;  
     }
     
-    public boolean procurarUsername(String username){
+    public List<Userlogin> listUsername(){
         
-        
-        
-        if((em.createNamedQuery("Userlogin.findByUsername").setParameter("username", username).getResultList())!=null)
-            return false;
-        
-        return true;
+       return em.createNamedQuery("Userlogin.findAll").getResultList();
           
     }
     
