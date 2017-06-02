@@ -34,13 +34,13 @@ public class LoginControler {
     
     public String createUserPub() {
         
-        if(login.procurarUsername(username)==true){
+        if((login.procurarUsername(username))==true){
             
             createuser.setUsername(username);
             createuser.setPassword(password);
             createuser.setTipo(1);
             login.createuser(createuser);
-        
+            
         }
             
         
