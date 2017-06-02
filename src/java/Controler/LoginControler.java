@@ -6,7 +6,7 @@
 package Controler;
 
 import BD.Userlogin;
-import beans.LoginBean;
+import bean.LoginBean;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

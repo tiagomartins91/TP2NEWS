@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 31, 2017, 10:39:22 PM
+    Author     : TiagoMartins
+*/
+
+html {
+	font-size:100%;
+	overflow-y:scroll;
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%;
+}
+body {
+	margin:0;
+	font-size:13px;
+	line-height:1.231;
+	background:#393630;
+}
+body,button,input,select,textarea {
+	font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
+	color:#222;
+}
