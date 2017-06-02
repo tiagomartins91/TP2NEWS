@@ -32,17 +32,31 @@ public class LoginControler {
     
     
     
-    public String createUser() {
+    public String createUserPub() {
+        
+        if(login.procurarUsername(username)==true){
+            
+            createuser.setUsername(username);
+            createuser.setPassword(password);
+            createuser.setTipo(1);
+            login.createuser(createuser);
+        
+        }
+            
+        
+        return "index.xhtml";
+    }
     
-        //createuser.setId(1);
-        //createuser.setUsername(username);
-        //createuser.setPassword(password);
-        //createuser.setTipo(1);
+    public String createUserSub() {
+    
+        createuser.setTipo(2);
         
         login.createuser(createuser);
         
         return "index.xhtml";
     } 
+    
+    
 
 
     public String getUsername() {
