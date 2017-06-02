@@ -131,7 +131,7 @@ public class Userlogin implements Serializable {
 
     @Override
     public String toString() {
-        return "\n ID: " + id + "Username: " + username + "Password: " + password + "Tipo: " + tipo + "\n";
+        return "ID: " + id + "Username: " + username + "Password: " + password + "Tipo: " + tipo;
     }
 
     @XmlTransient

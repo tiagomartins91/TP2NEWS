@@ -25,6 +25,19 @@
         </nav>
         </div>
         
+     
+          
+        <h:dataTable value = "#{loginControler.loginUsers}" var = "c">
+             
+                    <h:column>
+                        <f:facet name = "header">  Nome  </f:facet>
+                            #{c.username}
+                        <f:facet name = "header">  Nome  </f:facet>
+                            #{c.password}
+                    </h:column>
+                </h:dataTable>
+            
+        
         <h:form>
             <h:commandButton value="Create User" action="CreateUser" />
             
@@ -34,7 +47,6 @@
                 
                 <h:outputText value="Users" />
             </f:facet>
-            <h:outputText value="#{loginControler.listadenomes("tiago")}" />
         </h:column>
         <p><a href="teste.xhtml"> Pagina teste, remover mais tarde </a> </p>
         

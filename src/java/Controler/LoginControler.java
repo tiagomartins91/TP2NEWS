@@ -54,7 +54,14 @@ public class LoginControler {
         return "index.xhtml";
     }
     
-  
+    
+    public List<Userlogin> getLoginUsers(){
+        
+        List userlogin = login.listUsername();
+        return userlogin;
+        
+    }
+    
     
     public String getUsername() {
         return username;
