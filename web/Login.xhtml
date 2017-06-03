@@ -20,11 +20,10 @@
             <h:panelGrid columns="2" >
              
             <h:outputLabel value="Username "/>
-            <h:inputText value="#{loginControler.createuser.password}"/>   
+            <h:inputText value="#{loginControler.createuser.username}"/>     
 
             <h:outputLabel value="Password: "/>
-            <h:inputText value="#{loginControler.createuser.username}"/>   
-       
+             <h:inputText value="#{loginControler.createuser.password}"/>  
             </h:panelGrid> 
             <h:commandButton value="LOGIN" action="#{loginControler.createUserPub()}"/>
         </h:form>

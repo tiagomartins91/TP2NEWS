@@ -5,8 +5,11 @@
  */
 package Controler;
 
+import BD.Noticia;
+import BD.Topico;
 import BD.Userlogin;
 import bean.LoginBean;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -30,16 +33,24 @@ public class LoginControler {
     String password;
     
     Userlogin createuser = new Userlogin();
+    Topico topicos = new Topico();
+    Noticia noticia = new Noticia();
     
+    List<Userlogin> usernameList = new ArrayList<>();
+    List<Topico> topicosList = new ArrayList<>();
+    List<Noticia> noticiasList = new ArrayList<>();
     
-    
+  
     public String createUserPub() {
         
     
-            createuser.setTipo(1);
-            login.createuser(createuser);
-            
-        
+          createuser.setTipo(1);
+          login.createuser(createuser);
+          if(usernameList.contains(createuser))
+          {
+              return "index.xhtml";
+          }
+          usernameList = login.listUsername();
         return "index.xhtml";
     }
     

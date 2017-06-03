@@ -20,13 +20,17 @@ public class LoginBean {
 
     @PersistenceContext 
     EntityManager em;
-    
+    public String user;
     public Userlogin createuser(Userlogin create) { 
         
         
         em.persist(create);
         
         return create;  
+    }
+    
+    public List<Userlogin> getUsernameByName(String nome) {
+        return em.createNamedQuery("Username.findByNome").setParameter("username", nome).getResultList();
     }
     
     public List<Userlogin> listUsername(){
