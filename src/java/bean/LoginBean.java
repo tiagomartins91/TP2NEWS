@@ -12,6 +12,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -47,13 +48,17 @@ public class LoginBean {
        return em.createNamedQuery("Noticia.findAll").getResultList();
     }
     
-    public List<Noticia> getnoticiasdeautor(int id)
+    public List<Noticia> getnoticiasdeautor(Userlogin i)
     {
-       return em.createNamedQuery("Noticia.findByiduser").setParameter("iduser", id).getResultList();
+        Query query = em.createQuery( "Select n FROM Noticia n WHERE n.iduser.id = ?1" );
+        query.setParameter(1,i.getId() );
+      // vai buscar as noticias publicadas pelo autor i ! já bomba
+       return query.getResultList();
     }
      
     
     public List<Userlogin> getUsernameByName(String nome) {
+        
         return em.createNamedQuery("Username.findByNome").setParameter("username", nome).getResultList();
     }
     

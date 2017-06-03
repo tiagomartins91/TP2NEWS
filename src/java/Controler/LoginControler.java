@@ -107,9 +107,9 @@ public class LoginControler {
     }
      public List<Noticia> getnoticiasdeautor() {
             noticiasList = login.getnoticias();
-            //String s = (String) login.getnoticiasdeautor(1).get(0).getConteudo();//testar como depois dar o id do q andamos a procura
-           //Ainda com erro , algo que tem haver com o tipo de comperação do int com o que esta na se de dados.
-        return noticiasList;// verificar em registados o que apareceu
+            
+            
+        return login.getnoticiasdeautor(usernameList.get(0));
     }
     
      public List<Topico> gettopscriados() {
