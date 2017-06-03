@@ -19,11 +19,14 @@ import javax.persistence.Query;
  * @author TiagoMartins
  */
 @Stateless
-public class LoginBean {
+public class Bean {
 
     @PersistenceContext 
     EntityManager em;
+    
     public String user;
+    
+    //LOGIN
     public Userlogin createuser(Userlogin create) { 
         
         
@@ -31,6 +34,8 @@ public class LoginBean {
         
         return create;  
     }
+    
+    
      public Topico createuser(Topico create) { 
         
         

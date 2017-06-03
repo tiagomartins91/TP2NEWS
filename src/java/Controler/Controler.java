@@ -8,7 +8,7 @@ package Controler;
 import BD.Noticia;
 import BD.Topico;
 import BD.Userlogin;
-import bean.LoginBean;
+import bean.Bean;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -21,13 +21,13 @@ import javax.inject.Named;
  */
 
 
-@Named (value = "loginControler")
+@Named (value = "Controler")
 @RequestScoped
 
-public class LoginControler {
+public class Controler {
     
     @EJB
-    LoginBean login;
+    Bean login;
     
     String username;
     String password;
@@ -77,12 +77,12 @@ public class LoginControler {
         
         return false;
     }
-    public String createUserPub() {
+    public String createUserPub() { //criar Publisher
         
           usernameList = login.listUsername();
           createuser.setTipo(1);
           if(checkusercriado() == true)
-              return "Registados.xhtml";//indicar que já existe
+              return "UserExists.xhtml";//indicar que já existe
                                         // eu usava isso para verificar , quandoo existia ia para pagina diferente
           
           login.createuser(createuser);
@@ -116,20 +116,17 @@ public class LoginControler {
            topicosList = login.gettops();
         return topicosList;
     }
-    public String createUserSub() {
+    public String createUserSub() { //CriarSubs
     
         usernameList = login.listUsername();
         createuser.setTipo(2);
        if(checkusercriado() == true)
-              return "Registados.xhtml";
+              return "UserExists.xhtml";
         login.createuser(createuser);
         usernameList = login.listUsername();
         return "index.xhtml";
     }
     
-  
-    
-
     public List<Userlogin> getLoginUsers(){
         
         List userlogin = login.listUsername();

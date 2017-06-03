@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import bean.LoginBean;
+import bean.Bean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Teste extends HttpServlet {
 
     @EJB
-    LoginBean ejb;
+    Bean ejb;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

@@ -20,14 +20,14 @@
             <h:panelGrid columns="2" >
              
             <h:outputLabel value="Username "/>
-            <h:inputText value="#{loginControler.createuser.username}"/>   
+            <h:inputText value="#{Controler.createuser.username}"/>   
 
             <h:outputLabel value="Password: "/>
-            <h:inputText value="#{loginControler.createuser.password}"/>   
+            <h:inputSecret value="#{Controler.createuser.password}" />
        
             </h:panelGrid> 
-            <h:commandButton value="Criar Publisher" action="#{loginControler.createUserPub()}"/>
-            <h:commandButton value="Criar Subscriber" action="#{loginControler.createUserSub()}"/>
+            <h:commandButton value="Criar Publisher" action="#{Controler.createUserPub()}"/>
+            <h:commandButton value="Criar Subscriber" action="#{Controler.createUserSub()}"/>
             <p class="message"> Ja tem conta? <a href="login.xhtml">Log In</a></p>
         </h:form>
         
