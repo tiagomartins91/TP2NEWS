@@ -56,6 +56,15 @@ public class LoginControler {
     
   
     
+
+    public List<Userlogin> getLoginUsers(){
+        
+        List userlogin = login.listUsername();
+        return userlogin;
+        
+    }
+    
+
     public String getUsername() {
         return username;
     }
