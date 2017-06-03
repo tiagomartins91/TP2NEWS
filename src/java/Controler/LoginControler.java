@@ -7,6 +7,7 @@ package Controler;
 
 import BD.Userlogin;
 import bean.LoginBean;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -34,14 +35,11 @@ public class LoginControler {
     
     public String createUserPub() {
         
-        if(login.procurarUsername(username)==true){
             
             createuser.setUsername(username);
             createuser.setPassword(password);
             createuser.setTipo(1);
             login.createuser(createuser);
-        
-        }
             
         
         return "index.xhtml";
@@ -54,11 +52,10 @@ public class LoginControler {
         login.createuser(createuser);
         
         return "index.xhtml";
-    } 
+    }
     
+  
     
-
-
     public String getUsername() {
         return username;
     }
