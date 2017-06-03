@@ -8,7 +8,7 @@
         <h:outputStylesheet name="css/style.css"/>  
    
         
-        <title>Welcome!</title>
+        <title>Registar</title>
         
     </h:head>
     <h:body>
@@ -20,12 +20,15 @@
             <h:panelGrid columns="2" >
              
             <h:outputLabel value="Username "/>
-            <h:inputText value="#{loginControler.createuser.password}"/>   
+            <h:inputText value="#{loginControler.createuser.username}"/>   
 
             <h:outputLabel value="Password: "/>
-            <h:inputText value="#{loginControler.createuser.username}"/>   
+            <h:inputText value="#{loginControler.createuser.password}"/>   
        
             </h:panelGrid> 
+            <h:commandButton value="Criar Publisher" action="#{loginControler.createUserPub()}"/>
+            <h:commandButton value="Criar Subscriber" action="#{loginControler.createUserSub()}"/>
+            <p class="message"> Ja tem conta? <a href="login.xhtml">Log In</a></p>
             <h:commandButton value="Create Publisher" action="#{loginControler.createUserPub()}"/>
             <h:commandButton value="Create Subscriber" action="#{loginControler.createUserSub()}"/>
             <p class="message"> Ja tem conta? <a href="Login.xhtml">Log In</a></p>
