@@ -47,8 +47,9 @@ public class LoginControler {
     
     public String createUserSub() {
     
+        createuser.setUsername(username);
+        createuser.setPassword(password);
         createuser.setTipo(2);
-        
         login.createuser(createuser);
         
         return "index.xhtml";
