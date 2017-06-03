@@ -34,7 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Userlogin.findByUsername", query = "SELECT u FROM Userlogin u WHERE u.username = :username"),
     @NamedQuery(name = "Userlogin.findByPassword", query = "SELECT u FROM Userlogin u WHERE u.password = :password"),
     @NamedQuery(name = "Userlogin.findByTipo", query = "SELECT u FROM Userlogin u WHERE u.tipo = :tipo"),
-    @NamedQuery(name = "Userlogin.findById", query = "SELECT u FROM Userlogin u WHERE u.id = :id")})
+    @NamedQuery(name = "Userlogin.findById", query = "SELECT u FROM Userlogin u WHERE u.id = :id")    
+})
 public class Userlogin implements Serializable {
 
     @OneToMany(mappedBy = "iduser")

@@ -5,7 +5,6 @@
  */
 package bean;
 
-import BD.Topico;
 import BD.Userlogin;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -37,12 +36,5 @@ public class LoginBean {
       
     }
     
-    
-    
-           
-    
-    
-    
-    
-    
+   
 }

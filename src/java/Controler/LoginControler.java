@@ -35,9 +35,7 @@ public class LoginControler {
     
     public String createUserPub() {
         
-            
-            createuser.setUsername(username);
-            createuser.setPassword(password);
+    
             createuser.setTipo(1);
             login.createuser(createuser);
             
@@ -47,8 +45,7 @@ public class LoginControler {
     
     public String createUserSub() {
     
-        createuser.setUsername(username);
-        createuser.setPassword(password);
+       
         createuser.setTipo(2);
         login.createuser(createuser);
         
