@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registo</title>
+    </h:head>
+
+    <h:body>
+        <title>Registar Publisher</title>
+
+        <h:outputStylesheet library="css" name="style.css" />
+        <br></br>
+        <div align="center" >
+            <h2 align="center">Registar Publisher</h2>
+            <h:form >
+
+                <p> <h:outputLabel value="Nome: "/> </p>
+                <h:inputText value="#{loginControler.createuser.username}" /> 
+
+            
+
+                <p> <h:outputLabel value="Password "/> </p>
+                <h:inputText value="#{loginControler.createuser.password}" /> 
+                <br></br>
+                <p> 
+                    <h:commandButton value="Voltar" class="button1"
+                                     action="index.xhtml"/>
+                    <h:commandButton value="Criar Publisher" action="#{loginControler.createUserPub()}"/>
+                    <h:commandButton value="Criar Subscriber" action="#{loginControler.createUserSub()}"/>
+                  </p>
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

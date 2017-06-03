@@ -33,33 +33,97 @@ public class LoginControler {
     String password;
     
     Userlogin createuser = new Userlogin();
-    Topico topicos = new Topico();
-    Noticia noticia = new Noticia();
+    Topico createtop = new Topico();
+    Noticia createnot = new Noticia();
     
     List<Userlogin> usernameList = new ArrayList<>();
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     
-  
+    public String verifylog()
+    {
+        usernameList = login.listUsername();
+        for(int i = 0 ;i<usernameList.size();i++)
+         {
+             
+             if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
+                 if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
+                        return "Registados.xhtml";//se o login existir vai para registados
+         }
+        return "index.xhtml";// se nao vai para index
+    }
+    public String createTop()
+    {
+        topicosList = login.gettops(); // devolver os top q temos ate agora
+        if(checktop()==true)
+        {
+            return "Registados.xhtml";
+        }
+        login.createuser(createtop);//criar o top na base de dados
+        topicosList = login.gettops();//devolver a lista de querys com os tops + o q adicionamos
+        return "index.xhtml";
+        
+    }
+    
+    public boolean checktop()
+    {
+        topicosList = login.gettops();
+        for(int i = 0 ;i<topicosList.size();i++)
+         {
+             
+             if(topicosList.get(i).getNometopico().equals(createtop.getNometopico()))
+                 return true;
+         }
+        
+        return false;
+    }
     public String createUserPub() {
         
-    
+          usernameList = login.listUsername();
           createuser.setTipo(1);
+          if(checkusercriado() == true)
+              return "Registados.xhtml";//indicar que já existe
+                                        // eu usava isso para verificar , quandoo existia ia para pagina diferente
+          
           login.createuser(createuser);
-          if(usernameList.contains(createuser))
-          {
-              return "index.xhtml";
-          }
           usernameList = login.listUsername();
         return "index.xhtml";
     }
+    public boolean checkusercriado()
+    {
+        usernameList = login.listUsername();
+        for(int i = 0 ;i<usernameList.size();i++)
+         {
+             
+             if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
+                 return true;
+         }
+        
+        return false;
+    }
+    public List<Userlogin> getusernameregistados() {
+           usernameList = login.listUsername();
+        return usernameList;
+    }
+     public List<Noticia> getnoticiasdeautor() {
+            noticiasList = login.getnoticias();
+            //String s = (String) login.getnoticiasdeautor(1).get(0).getConteudo();//testar como depois dar o id do q andamos a procura
+           //Ainda com erro , algo que tem haver com o tipo de comperação do int com o que esta na se de dados.
+        return noticiasList;// verificar em registados o que apareceu
+    }
     
+     public List<Topico> gettopscriados() {
+           topicosList = login.gettops();
+        return topicosList;
+    }
     public String createUserSub() {
     
-       
+        usernameList = login.listUsername();
         createuser.setTipo(2);
+       if(checkusercriado() == true)
+              return "Registados.xhtml";
         login.createuser(createuser);
-        
+        usernameList = login.listUsername();
         return "index.xhtml";
     }
     

@@ -5,6 +5,8 @@
  */
 package bean;
 
+import BD.Noticia;
+import BD.Topico;
 import BD.Userlogin;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -28,6 +30,28 @@ public class LoginBean {
         
         return create;  
     }
+     public Topico createuser(Topico create) { 
+        
+        
+        em.persist(create);
+        
+        return create;  
+    }
+    public List<Topico> gettops()
+    {
+       return em.createNamedQuery("Topico.findAll").getResultList();
+    }
+     
+    public List<Noticia> getnoticias()
+    {
+       return em.createNamedQuery("Noticia.findAll").getResultList();
+    }
+    
+    public List<Noticia> getnoticiasdeautor(int id)
+    {
+       return em.createNamedQuery("Noticia.findByiduser").setParameter("iduser", id).getResultList();
+    }
+     
     
     public List<Userlogin> getUsernameByName(String nome) {
         return em.createNamedQuery("Username.findByNome").setParameter("username", nome).getResultList();
