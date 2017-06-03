@@ -6,8 +6,6 @@
 package bean;
 
 import BD.Topico;
-import BD.Userlogin;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,32 +15,18 @@ import javax.persistence.PersistenceContext;
  * @author TiagoMartins
  */
 @Stateless
-public class LoginBean {
+public class TopicoBean {
 
     @PersistenceContext 
     EntityManager em;
     
-    public Userlogin createuser(Userlogin create) { 
-        
-        
+    
+    public Topico createTopico(Topico create){
+
         em.persist(create);
-        
-        return create;  
+
+        return create;     
     }
-    
-    public List<Userlogin> listUsername(){
-        
-       return em.createNamedQuery("Userlogin.findAll").getResultList();
-          
-      
-    }
-    
-    
-    
-           
-    
-    
-    
     
     
 }
