@@ -14,12 +14,11 @@
         
              
    <div class="wrapper">
-       <div class="cabecalho"><h1>Menu Publisher #{Controler.createuser.username}</h1> </div>
-          
-      
-       
+
             
             <h:form class="botoes">
+                <p class="botoesTitle">Menu Publisher:<br>#{Controler.createuser.username}</br></p>
+                
                 <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
