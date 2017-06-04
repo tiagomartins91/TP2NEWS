@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+   
+        <h:outputStylesheet name="css/style.css"/>  
+   
+        
+        <title>Adicionar Tópico</title>
+        
+    </h:head>
+    <h:body>
+        
+      <div class="login-page">  
+          <div class="form">
+              
+              <h:form class="login-form">         
+           <h:panelGrid columns="2" border="1">  
+           <h:outputLabel value="Topico" />  
+           <h:column> 
+               <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+                   <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
+                   <f:selectItems value="#{Controler.gettopscriados()}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
+            </h:selectOneMenu> 
+               </h:column> 
+           <h:outputLabel value="Inserir Noticia"/>
+           <h:inputText value="#{Controler.createnot.conteudo}"/> 
+           <h:commandButton value="Adicionar Noticia" action="#{Controler.criarnoticia()}"/>
+            </h:panelGrid> 
+        </h:form>
+        
+          </div>
+      </div>
+    </h:body>
+</html>

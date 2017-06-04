@@ -33,10 +33,27 @@ public class Controler {
     String username;
     String password;
     String nometopico;
+
+    public int getIdtopico() {
+        return idtopico;
+    }
+
+    public void setIdtopico(int idtopico) {
+        this.idtopico = idtopico;
+    }
+    int idtopico;
     
     Userlogin createuser = new Userlogin();
     Topico criartopico = new Topico();
     Noticia createnot = new Noticia();
+
+    public Noticia getCreatenot() {
+        return createnot;
+    }
+
+    public void setCreatenot(Noticia createnot) {
+        this.createnot = createnot;
+    }
     
     
     
@@ -76,11 +93,15 @@ public class Controler {
              
              if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
                  if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
-                     if(usernameList.get(i).getTipo()==1)
-                        return "MenuPub.xhtml";//se o login existir vai para registados
+                     if(usernameList.get(i).getTipo()==1) 
+                     {
+                         createuser.setId(usernameList.get(i).getId());
+                         return "MenuPub.xhtml";//se o login existir vai para registados
+                     }
          }
         return "UserNoExists.xhtml";// se nao vai para index
     }
+    
     public String createTop() //criar topico
     {
         topicosList = login.gettops(); // devolver os top q temos ate agora
@@ -88,14 +109,29 @@ public class Controler {
         {
             return "UserExists.xhtml";
         }
-        Date data = new Date();
-       
-        criartopico.setDatan(data);
+        
         login.createTopico(criartopico);//criar o top na base de dados
         topicosList = login.gettops();//devolver a lista de querys com os tops + o q adicionamos
         
             return "MenuPub.xhtml";
         
+    }
+    public String criarnoticia()
+    {
+       
+        
+        
+       
+        createnot.setIduser(createuser);
+        Date data = new Date();
+        createnot.setDatan(data);
+        createnot.setIdtop(criartopico);
+       
+        if(createnot.getIduser().getId()==1)
+            return "Registados.xhtml";
+        login.createNoticia(createnot);
+        noticiasList = login.getnoticias();
+        return "MenuPub.xhtml"; 
     }
     
     public boolean checktop()
