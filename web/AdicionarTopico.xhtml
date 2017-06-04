@@ -51,8 +51,10 @@
             <h:inputText value="#{Controler.criartopico.nometopico}"/>     
   
             </h:panelGrid> 
-                  <h:commandButton value="Criar" action="#{Controler.createTop()}"/>
-        </h:form>
+                <h:commandButton value="Criar" action="#{Controler.createTop()}">
+                  <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+              </h:form>
         
           </div>
       </div>
