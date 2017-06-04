@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -30,7 +29,6 @@ public class Controler {
     
     @EJB
     Bean login;
-    public static Dados dados = new Dados();
     String username;
     String password;
     String nometopico;
@@ -85,10 +83,6 @@ public class Controler {
                      {
                         
                          //createuser = login.getUsernameByName(login.outcome()).get(0);
-                         //dados.setId(usernameList.get(i).getId());
-                         //dados.setTipo(1);
-                         //dados.setUsername(createuser.getUsername());
-                         //dados.setPassword(createuser.getPassword());
                           return "MenuPub.xhtml";
                              
                      }
@@ -96,15 +90,7 @@ public class Controler {
         return "UserNoExists.xhtml";// vai para user no exists
     }
 
-    public Dados getDados() {
-        return dados;
-    }
 
-    public void setDados(Dados dados) {
-        this.dados = dados;
-    }
-    
- 
     
     public String createTop() //criar topico
     {
@@ -120,17 +106,7 @@ public class Controler {
             return "MenuPub.xhtml";
         
     }
-    public Userlogin procuraruser(Dados s)
-    {
-        usernameList = login.listUsername();
-        for(int i = 0 ;i<usernameList.size();i++)
-        {
-            if(usernameList.get(i).getUsername().equals(s.getUsername()))
-                return usernameList.get(i);
-        }
-        
-        return null;
-    }
+
     public String criarnoticia() //Adicionar Noticia
     {
         
