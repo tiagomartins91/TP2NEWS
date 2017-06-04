@@ -17,8 +17,7 @@ body {
   box-sizing: border-box;
 }
 
-.wrapper {
-  
+.wrapper {  
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -38,7 +37,6 @@ body {
   position: relative;
   padding-bottom: 8px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
-  margin-top: 15%;
 }
 
 .login input {
@@ -96,14 +94,13 @@ body {
 .botoes{
     
   border-radius: 2px 2px 5px 5px;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 2px 20px;
   width: 90%;
   max-width: 320px;
   background: #ffffff;
   position: relative;
   padding-bottom: 8px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
-  margin-top: 15%;     
   font-weight: bold;
 }
 
@@ -119,8 +116,6 @@ body {
   font-weight: bold;
 }
 
-.cabecalho{
-text-align: left;
-padding-right: 80%;
-color: white;
+.cabecalho{   
+    color:white;
 }
