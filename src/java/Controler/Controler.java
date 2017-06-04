@@ -48,9 +48,10 @@ public class Controler {
              
              if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
                  if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
-                        return "Registados.xhtml";//se o login existir vai para registados
+                     if(usernameList.get(i).getTipo()==1)
+                        return "MenuPub.xhtml";//se o login existir vai para registados
          }
-        return "index.xhtml";// se nao vai para index
+        return "UserNoExists.xhtml";// se nao vai para index
     }
     public String createTop()
     {
