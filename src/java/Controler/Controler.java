@@ -193,9 +193,14 @@ public class Controler {
         return login.getnoticiasdeautor(usernameList.get(0));
     }
     
-     public List<Topico> gettopscriados() {
-           topicosList = login.gettops();
+
+    public List<Topico> getTopicosList() {
+        topicosList = login.gettops();
         return topicosList;
+    }
+
+    public void setTopicosList(List<Topico> topicosList) {
+        this.topicosList = topicosList;
     }
     
     
