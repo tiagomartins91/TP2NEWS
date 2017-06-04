@@ -29,7 +29,7 @@ public class Controler {
     
     @EJB
     Bean login;
-    
+    public static Dados dados = new Dados();
     String username;
     String password;
     String nometopico;
@@ -95,15 +95,27 @@ public class Controler {
                  if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
                      if(usernameList.get(i).getTipo()==1) 
                      {
-                         createuser.setId(usernameList.get(i).getId());
-                         createuser.setTipo(1);
-                         login.user=createuser.getUsername();
-                             return "MenuPub.xhtml";
-                         
+                        
+                         dados.setId(usernameList.get(i).getId());
+                         dados.setTipo(1);
+                         dados.setUsername(createuser.getUsername());
+                         dados.setPassword(createuser.getPassword());
+                          return "MenuPub.xhtml";
+                             
                      }
          }
         return "UserNoExists.xhtml";// se nao vai para index
     }
+
+    public Dados getDados() {
+        return dados;
+    }
+
+    public void setDados(Dados dados) {
+        this.dados = dados;
+    }
+    
+ 
     
     public String createTop() //criar topico
     {
@@ -119,23 +131,27 @@ public class Controler {
             return "MenuPub.xhtml";
         
     }
+    public Userlogin procuraruser(Dados s)
+    {
+        usernameList = login.listUsername();
+        for(int i = 0 ;i<usernameList.size();i++)
+        {
+            if(usernameList.get(i).getUsername().equals(s.getUsername()))
+                return usernameList.get(i);
+        }
+        
+        return null;
+    }
     public String criarnoticia()
     {
+
+        createuser = procuraruser(dados);
         
-        if(login.getUser().equals("fabio"))
-           return "index.xhtml";
-        
-        if(createuser.getUsername().equals("fabio"))
-            return "index.xhtml";
-        
-       
         createnot.setIduser(createuser);
         Date data = new Date();
         createnot.setDatan(data);
         createnot.setIdtop(criartopico);
-       
-        if(createnot.getIduser().getId()==1)
-            return "Registados.xhtml";
+
         login.createNoticia(createnot);
         noticiasList = login.getnoticias();
         return "MenuPub.xhtml"; 
