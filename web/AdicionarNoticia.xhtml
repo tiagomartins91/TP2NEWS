@@ -16,6 +16,17 @@
     </h:head>
     <h:body>
         
+        <div class="topnav">
+        <a href="MenuPub.xhtml">Menu Inicial</a>
+        <a href="AdicionarTopico.xhtml">Add Topico</a>
+        <a href="ConsultarTopicos.xhtml">Consultar Topicos</a>
+        <a href="AdicionarNoticia.xhtml">Inserir Noticia</a>
+        <a href="ConsultarTodasNoticias.xhtml">Consultar todas as Noticias</a>
+        </div>
+        
+        
+        
+        
       <div class="login-page">  
           <div class="form">
               
@@ -25,7 +36,7 @@
            <h:column> 
                <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
                    <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
-                   <f:selectItems value="#{Controler.gettopscriados()}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
+                   <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
             </h:selectOneMenu> 
                </h:column> 
            <h:outputLabel value="Inserir Noticia"/>

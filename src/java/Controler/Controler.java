@@ -186,12 +186,26 @@ public class Controler {
            usernameList = login.listUsername();
         return usernameList;
     }
-     public List<Noticia> getnoticiasdeautor() {
+    
+    public List<Noticia> getnoticiasdeautor() {
             noticiasList = login.getnoticias();
             
             
         return login.getnoticiasdeautor(usernameList.get(0));
     }
+
+    public List<Noticia> getNoticiasList() {
+        
+        noticiasList = login.getnoticias();
+        
+        return noticiasList;
+    }
+
+    public void setNoticiasList(List<Noticia> noticiasList) {
+        this.noticiasList = noticiasList;
+    }
+    
+    
     
 
     public List<Topico> getTopicosList() {
