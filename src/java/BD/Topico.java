@@ -7,7 +7,6 @@ package BD;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,8 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -27,16 +24,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author TiagoMartins
+ * @author Fábio
  */
 @Entity
 @Table(name = "TOPICO")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Topico.findAll", query = "SELECT t FROM Topico t"),
-    @NamedQuery(name = "Topico.findByIdtopico", query = "SELECT t FROM Topico t WHERE t.idtopico = :idtopico"),
-    @NamedQuery(name = "Topico.findByNometopico", query = "SELECT t FROM Topico t WHERE t.nometopico = :nometopico"),
-    @NamedQuery(name = "Topico.findByDatan", query = "SELECT t FROM Topico t WHERE t.datan = :datan")})
+    @NamedQuery(name = "Topico.findAll", query = "SELECT t FROM Topico t")
+    , @NamedQuery(name = "Topico.findByIdtopico", query = "SELECT t FROM Topico t WHERE t.idtopico = :idtopico")
+    , @NamedQuery(name = "Topico.findByNometopico", query = "SELECT t FROM Topico t WHERE t.nometopico = :nometopico")})
 public class Topico implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,13 +46,8 @@ public class Topico implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "NOMETOPICO")
     private String nometopico;
-    @Column(name = "DATAN")
-    @Temporal(TemporalType.DATE)
-    private Date datan;
     @OneToMany(mappedBy = "idtop")
     private Collection<Noticia> noticiaCollection;
-    @OneToMany(mappedBy = "topsubs")
-    private Collection<Subs> subsCollection;
 
     public Topico() {
     }
@@ -86,14 +77,6 @@ public class Topico implements Serializable {
         this.nometopico = nometopico;
     }
 
-    public Date getDatan() {
-        return datan;
-    }
-
-    public void setDatan(Date datan) {
-        this.datan = datan;
-    }
-
     @XmlTransient
     public Collection<Noticia> getNoticiaCollection() {
         return noticiaCollection;
@@ -101,15 +84,6 @@ public class Topico implements Serializable {
 
     public void setNoticiaCollection(Collection<Noticia> noticiaCollection) {
         this.noticiaCollection = noticiaCollection;
-    }
-
-    @XmlTransient
-    public Collection<Subs> getSubsCollection() {
-        return subsCollection;
-    }
-
-    public void setSubsCollection(Collection<Subs> subsCollection) {
-        this.subsCollection = subsCollection;
     }
 
     @Override

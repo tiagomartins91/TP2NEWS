@@ -35,6 +35,13 @@ public class Bean {
         return create;  
     }
     
+     public Noticia createNoticia(Noticia n) { 
+        
+        
+        em.persist(n);
+        
+        return n;  
+    }
     
      public Topico createTopico(Topico create) { 
         

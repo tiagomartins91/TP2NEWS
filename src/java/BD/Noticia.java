@@ -6,6 +6,7 @@
 package BD;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,23 +18,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author TiagoMartins
+ * @author Fábio
  */
 @Entity
 @Table(name = "NOTICIA")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Noticia.findAll", query = "SELECT n FROM Noticia n"),
-    @NamedQuery(name = "Noticia.findByIdnoticia", query = "SELECT n FROM Noticia n WHERE n.idnoticia = :idnoticia"),
-    @NamedQuery(name = "Noticia.findByConteudo", query = "SELECT n FROM Noticia n WHERE n.conteudo = :conteudo"),
-    @NamedQuery(name = "Noticia.findByiduser", query = "SELECT n FROM Noticia n WHERE n.iduser = :iduser")})
-
+    @NamedQuery(name = "Noticia.findAll", query = "SELECT n FROM Noticia n")
+    , @NamedQuery(name = "Noticia.findByIdnoticia", query = "SELECT n FROM Noticia n WHERE n.idnoticia = :idnoticia")
+    , @NamedQuery(name = "Noticia.findByConteudo", query = "SELECT n FROM Noticia n WHERE n.conteudo = :conteudo")
+    , @NamedQuery(name = "Noticia.findByDatan", query = "SELECT n FROM Noticia n WHERE n.datan = :datan")})
 public class Noticia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,6 +49,9 @@ public class Noticia implements Serializable {
     @Size(min = 1, max = 200)
     @Column(name = "CONTEUDO")
     private String conteudo;
+    @Column(name = "DATAN")
+    @Temporal(TemporalType.DATE)
+    private Date datan;
     @JoinColumn(name = "IDTOP", referencedColumnName = "IDTOPICO")
     @ManyToOne
     private Topico idtop;
@@ -80,6 +85,14 @@ public class Noticia implements Serializable {
 
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
+    }
+
+    public Date getDatan() {
+        return datan;
+    }
+
+    public void setDatan(Date datan) {
+        this.datan = datan;
     }
 
     public Topico getIdtop() {
