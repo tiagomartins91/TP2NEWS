@@ -105,7 +105,9 @@ public class Controler {
         login.createTopico(criartopico);//criar o top na base de dados
         topicosList = login.gettops();//devolver a lista de querys com os tops + o q adicionamos
         
-            return "MenuPub.xhtml";
+        createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+        return "MenuPub.xhtml";
         
     }
 

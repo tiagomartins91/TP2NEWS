@@ -28,7 +28,9 @@
                </h:column> 
            <h:outputLabel value="Notícia"/>
            <h:commandButton value="Ver" action="#{Controler.checkUltimaNoticiaTopico()}">
-           <h1>Noticia #{Controler.vernot.toString()}</h1>
+               <h1>ID Noticia: #{Controler.vernot.idnoticia}</h1>
+               <h1>Conteudo: #{Controler.vernot.conteudo}</h1>
+               <h1>Data: #{Controler.vernot.datan}</h1>
            </h:commandButton>
             </h:form>
         
