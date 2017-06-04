@@ -29,8 +29,9 @@ public class Bean {
 
     
     public String username;
+    public int idnoticia;
     
-    public String outcome(){
+        public String outcome(){
 
 		FacesContext fc = FacesContext.getCurrentInstance();
 		this.username = getUsernameParam(fc);
@@ -90,7 +91,16 @@ public class Bean {
       // vai buscar as noticias publicadas pelo autor i ! já bomba
        return query.getResultList();
     }
-     
+    
+    public List<Noticia> getnoticiasID(Noticia  n){
+        return em.createNamedQuery("Noticia.findByIdnoticia").setParameter("idnoticias", n.getIdnoticia()).getResultList();
+    }
+    
+    public List<Noticia> getnoticiasTopico(Topico  idtp){
+        return em.createNamedQuery("Noticia.findByIDTopico").setParameter("idtop", idtp).getResultList();
+    }
+    
+    
     
     public List<Userlogin> getUsernameByName(String nome) {
         

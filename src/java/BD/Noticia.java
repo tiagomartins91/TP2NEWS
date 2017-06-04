@@ -5,6 +5,7 @@
  */
 package BD;
 
+import static BD.Userlogin_.id;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -35,7 +36,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Noticia.findAll", query = "SELECT n FROM Noticia n")
     , @NamedQuery(name = "Noticia.findByIdnoticia", query = "SELECT n FROM Noticia n WHERE n.idnoticia = :idnoticia")
     , @NamedQuery(name = "Noticia.findByConteudo", query = "SELECT n FROM Noticia n WHERE n.conteudo = :conteudo")
-    , @NamedQuery(name = "Noticia.findByDatan", query = "SELECT n FROM Noticia n WHERE n.datan = :datan")})
+    , @NamedQuery(name = "Noticia.findByDatan", query = "SELECT n FROM Noticia n WHERE n.datan = :datan")
+    , @NamedQuery(name = "Noticia.findByIDTopico", query = "SELECT n FROM Noticia n WHERE n.idtop = :idtop")    
+        
+
+})
 public class Noticia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -133,7 +138,7 @@ public class Noticia implements Serializable {
 
     @Override
     public String toString() {
-        return "BD.Noticia[ idnoticia=" + idnoticia + " ]";
+        return "ID: " + idnoticia + "Conteudo: " + conteudo + "Data: " + datan ;
     }
     
 }
