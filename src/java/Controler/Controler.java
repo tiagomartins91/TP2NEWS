@@ -96,7 +96,10 @@ public class Controler {
                      if(usernameList.get(i).getTipo()==1) 
                      {
                          createuser.setId(usernameList.get(i).getId());
-                         return "MenuPub.xhtml";//se o login existir vai para registados
+                         createuser.setTipo(1);
+                         login.user=createuser.getUsername();
+                             return "MenuPub.xhtml";
+                         
                      }
          }
         return "UserNoExists.xhtml";// se nao vai para index
@@ -118,8 +121,12 @@ public class Controler {
     }
     public String criarnoticia()
     {
-       
         
+        if(login.getUser().equals("fabio"))
+           return "index.xhtml";
+        
+        if(createuser.getUsername().equals("fabio"))
+            return "index.xhtml";
         
        
         createnot.setIduser(createuser);

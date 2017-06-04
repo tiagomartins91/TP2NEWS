@@ -23,6 +23,15 @@ public class Bean {
 
     @PersistenceContext 
     EntityManager em;
+   
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
     
     public String user;
     
