@@ -6,24 +6,26 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Subs Sem Registo</title>
+        <title>Noticias</title>
          <h:outputStylesheet name="css/logincss.css"/>  
         
     </h:head>
     <h:body>
                
    <div class="wrapper">
-            
-            <h:form class="botoes">   
-            <h:commandButton value="Consultar Noticias entre Datas" action="#"/> 
-            <h:commandButton value="Consultar Última Noticia de um Tópico" action="#"/>
-            
-            
-            </h:form>   
-            
-            
-            
-            
+       <form class="login">
+           <p class="title">Log in</p>   
+            <h:outputLabel value="Username "/>
+            <h:inputText  value="#{Controler.createuser.username}"/>  
+        
+          <h:outputLabel value="Password: "/>
+          <h:inputSecret value="#{Controler.createuser.password}"/>  
+          
+           <h:commandButton value="LOGIN" action="#{Controler.verifylog}"/>
+    
+       </form>
+ 
    </div> 
     </h:body>
 </html>
+

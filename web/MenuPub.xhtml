@@ -6,19 +6,20 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Publisher </title>
-        <h1 align="center">Menu Publisher #{Controler.createuser.username}</h1>
-         <h:outputStylesheet name="css/indexcss.css"/> 
- 
-         
+        <h:outputStylesheet name="css/logincss.css"/> 
+                 
         
     </h:head>
     <h:body>
         
-               
-   <div class="menu">
+             
+   <div class="wrapper">
+       <div class="cabecalho"><h1>Menu Publisher #{Controler.createuser.username}</h1> </div>
+          
+      
+       
             
-            
-            <h:form>
+            <h:form class="botoes">
                 <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
