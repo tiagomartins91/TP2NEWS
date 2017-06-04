@@ -19,11 +19,27 @@
     <h:body>
         
     <div class="topnav">
-        <a href="MenuPub.xhtml">Menu Inicial</a>
-        <a href="AdicionarTopico.xhtml">Add Topico</a>
-        <a href="ConsultarTopicos.xhtml">Consultar Topicos</a>
-        <a href="AdicionarNoticia.xhtml">Inserir Notícia</a>
-        <a href="ConsultarTodasNoticias.xhtml">Consultar todas as Notícias</a>
+        <h:form>
+                <h:commandButton value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+
+                <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+                
+                <h:commandButton value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+
+                <h:commandButton value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+                
+                <h:commandButton value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+            </h:form>
     </div>
         
         <div class="login-page">  

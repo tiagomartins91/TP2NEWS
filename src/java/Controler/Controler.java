@@ -38,11 +38,13 @@ public class Controler {
     Userlogin createuser = new Userlogin();
     Topico criartopico = new Topico();
     Noticia createnot = new Noticia();
+    Noticia vernot = new Noticia();
 
 
     List<Userlogin> usernameList = new ArrayList<>();
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
+    List <Noticia> noticiastopicosList = new ArrayList<>();
     
 
     
@@ -111,13 +113,10 @@ public class Controler {
     {
         
         createuser = login.getUsernameByName(login.outcome()).get(0);
-        
-        //createuser = procuraruser(dados);
-        
-        //createnot.setIduser(createuser);
-        
+     
         Date data = new Date();
         
+        createnot.setIduser(createuser);
         createnot.setDatan(data);
         createnot.setIdtop(criartopico);
 
@@ -155,7 +154,14 @@ public class Controler {
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
         
-            return "ConsultarTopicos.xhtml";
+            return "ConsultarTodasNoticias.xhtml";
+    }
+    
+    public String irparaMenuPub(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "MenuPub.xhtml";
     }
     
     
@@ -171,6 +177,18 @@ public class Controler {
          }
         
         return false;
+    }
+    
+    public Noticia checkUltimaNoticiaTopico(){
+        
+        
+         noticiastopicosList = login.getnoticiasTopico(criartopico);
+         
+         vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
+       
+                 
+        return vernot;
+    
     }
     
     public boolean checkusercriado()
@@ -278,6 +296,14 @@ public class Controler {
 
     public void setCreatenot(Noticia createnot) {
         this.createnot = createnot;
+    }
+
+    public Noticia getVernot() {
+        return vernot;
+    }
+
+    public void setVernot(Noticia vernot) {
+        this.vernot = vernot;
     }
     
     
