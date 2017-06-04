@@ -118,7 +118,6 @@ public class Bean {
     }
     
     
-    
     public List<Userlogin> getUsernameByName(String nome) {
         
         return em.createNamedQuery("Userlogin.findByUsername").setParameter("username", nome).getResultList();

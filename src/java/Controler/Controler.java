@@ -181,13 +181,12 @@ public class Controler {
     
     public Noticia checkUltimaNoticiaTopico(){
         
-        
          noticiastopicosList = login.getnoticiasTopico(criartopico);
-         
-         vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
+
        
+         //vernot = login.getnoticiasID(login.outcome()).get(0);
                  
-        return vernot;
+        return vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
     
     }
     
