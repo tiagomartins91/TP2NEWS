@@ -8,14 +8,17 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
    
-        <h:outputStylesheet name="css/style.css"/>  
+        <h:outputStylesheet name="css/indexcss.css"/> 
+        <h:outputStylesheet name="css/logincss.css"/>
    
         
         <title>Adicionar Tópico</title>
-        <h1 align="center">Menu Noticias #{Controler.createuser.username}</h1>
+  
     </h:head>
     <h:body>
-        
+     
+        <div class="wrapper">  
+                  <h1 class="cabecalho">Menu Noticias #{Controler.createuser.username}</h1>
         <div class="topnav">
         <h:form>
                 <h:commandButton value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
@@ -40,10 +43,10 @@
             </h:form>
         </div>
         
+                  <br></br>
         
         
-        
-      <div class="login-page">  
+      <div class="botoes">  
           <div class="form">
               
               <h:form class="login-form">         
@@ -65,5 +68,7 @@
         
           </div>
       </div>
+            
+        </div>
     </h:body>
 </html>
