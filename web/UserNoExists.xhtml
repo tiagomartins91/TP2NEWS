@@ -9,19 +9,27 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Registar</title>
-         <h:outputStylesheet name="css/indexcss.css"/>  
+          <h:outputStylesheet name="css/style.css"/> 
+             <h:outputStylesheet name="css/logincss.css"/>
         
     </h:head>
     <h:body>
                
-   <div class="menu">
+<div class="wrapper">             
+
             
-            <p>Utilizador não registado!</p>
-            <a href="index.xhtml" class="button">MENU PRINCIPAL</a>
-            <br></br>
-            <a href="CreateUser.xhtml" class="button">Criar Utilizador</a>
-            <br></br>
-            <br></br>
-   </div> 
+                    
+            <h:form class="botoes">   
+                <p class="botoesTitle">Utilizador não registado!</p>
+            <h:commandButton value="Menu Principal" action="index.xhtml"/> 
+            <h:commandButton value="Criar Utilizador" action="CreateUser.xhtml"/>           
+            
+            </h:form>   
+
+</div>
+        
+          
+        
+        
     </h:body>
 </html>
