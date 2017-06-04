@@ -6,20 +6,24 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Publisher</title>
-         <h:outputStylesheet name="css/indexcss.css"/>  
+        <title>Subscriber</title>
+         <h:outputStylesheet name="css/logincss.css"/>   
         
     </h:head>
     <h:body>
                
-   <div class="menu">
+  <div class="wrapper">
             
-            <a href="" class="button">Subscrever um Tópico</a>
-            <br></br>
-            <a href="" class="button">Consultar Notícias entre Datas</a>
-            <br></br>
-            <a href="#" class="button">Consultar Última Notícia de um Tópico</a> 
-            <br></br>
+            <h:form class="botoes">
+                <p class="botoesTitle">Menu Subscriber:<br>#{Controler.createuser.username}</br></p>
+            
+            <h:commandButton value="Subscrever Tópico" action="#"/> 
+            <h:commandButton value="Consultar Noticias entre Datas" action="#"/> 
+            <h:commandButton value="Consultar Última Noticia de um Tópico" action="#"/>
+
+         
+            </h:form>   
+
    </div> 
     </h:body>
 </html>

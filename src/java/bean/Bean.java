@@ -56,7 +56,7 @@ public class Bean {
 	return idnoticia;
     }
 
-    //obter valor do "f:param" do xhtml pub/sub
+    //obter valor do "f:param" do xhtml
     public String getUsernameParamNoticia(FacesContext fc){
 
 		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
