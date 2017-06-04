@@ -10,6 +10,7 @@ import BD.Topico;
 import BD.Userlogin;
 import bean.Bean;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -31,53 +32,19 @@ public class Controler {
     
     String username;
     String password;
+    String nometopico;
     
     Userlogin createuser = new Userlogin();
-    Topico createtop = new Topico();
+    Topico criartopico = new Topico();
     Noticia createnot = new Noticia();
+    
+    
     
     List<Userlogin> usernameList = new ArrayList<>();
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     
-    public String verifylog()
-    {
-        usernameList = login.listUsername();
-        for(int i = 0 ;i<usernameList.size();i++)
-         {
-             
-             if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
-                 if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
-                     if(usernameList.get(i).getTipo()==1)
-                        return "MenuPub.xhtml";//se o login existir vai para registados
-         }
-        return "UserNoExists.xhtml";// se nao vai para index
-    }
-    public String createTop()
-    {
-        topicosList = login.gettops(); // devolver os top q temos ate agora
-        if(checktop()==true)
-        {
-            return "Registados.xhtml";
-        }
-        login.createuser(createtop);//criar o top na base de dados
-        topicosList = login.gettops();//devolver a lista de querys com os tops + o q adicionamos
-        return "index.xhtml";
-        
-    }
     
-    public boolean checktop()
-    {
-        topicosList = login.gettops();
-        for(int i = 0 ;i<topicosList.size();i++)
-         {
-             
-             if(topicosList.get(i).getNometopico().equals(createtop.getNometopico()))
-                 return true;
-         }
-        
-        return false;
-    }
     public String createUserPub() { //criar Publisher
         
           usernameList = login.listUsername();
@@ -90,6 +57,60 @@ public class Controler {
           usernameList = login.listUsername();
         return "index.xhtml";
     }
+    
+    public String createUserSub() { //CriarSubs
+    
+        usernameList = login.listUsername();
+        createuser.setTipo(2);
+       if(checkusercriado() == true)
+              return "UserExists.xhtml";
+        login.createuser(createuser);
+        usernameList = login.listUsername();
+        return "index.xhtml";
+    }
+    
+    public String verifylog(){ //verificação de login
+        usernameList = login.listUsername();
+        for(int i = 0 ;i<usernameList.size();i++)
+         {
+             
+             if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
+                 if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
+                     if(usernameList.get(i).getTipo()==1)
+                        return "MenuPub.xhtml";//se o login existir vai para registados
+         }
+        return "UserNoExists.xhtml";// se nao vai para index
+    }
+    public String createTop() //criar topico
+    {
+        topicosList = login.gettops(); // devolver os top q temos ate agora
+        if(checktop()==true)
+        {
+            return "UserExists.xhtml";
+        }
+        Date data = new Date();
+       
+        criartopico.setDatan(data);
+        login.createTopico(criartopico);//criar o top na base de dados
+        topicosList = login.gettops();//devolver a lista de querys com os tops + o q adicionamos
+        
+            return "MenuPub.xhtml";
+        
+    }
+    
+    public boolean checktop()
+    {
+        topicosList = login.gettops();
+        for(int i = 0 ;i<topicosList.size();i++)
+         {
+             
+             if(topicosList.get(i).getNometopico().equals(criartopico.getNometopico()))
+                 return true;
+         }
+        
+        return false;
+    }
+    
     public boolean checkusercriado()
     {
         usernameList = login.listUsername();
@@ -117,16 +138,7 @@ public class Controler {
            topicosList = login.gettops();
         return topicosList;
     }
-    public String createUserSub() { //CriarSubs
     
-        usernameList = login.listUsername();
-        createuser.setTipo(2);
-       if(checkusercriado() == true)
-              return "UserExists.xhtml";
-        login.createuser(createuser);
-        usernameList = login.listUsername();
-        return "index.xhtml";
-    }
     
     public List<Userlogin> getLoginUsers(){
         
@@ -161,6 +173,17 @@ public class Controler {
     public void setCreateuser(Userlogin createuser) {
         this.createuser = createuser;
     }
+
+    public Topico getCriartopico() {
+        return criartopico;
+    }
+
+    public void setCriartopico(Topico criartopico) {
+        this.criartopico = criartopico;
+    }
+    
+    
+    
     
     
 }

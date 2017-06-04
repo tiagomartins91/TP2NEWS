@@ -36,7 +36,7 @@ public class Bean {
     }
     
     
-     public Topico createuser(Topico create) { 
+     public Topico createTopico(Topico create) { 
         
         
         em.persist(create);
