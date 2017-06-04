@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -33,34 +34,19 @@ public class Controler {
     String username;
     String password;
     String nometopico;
-
-    public int getIdtopico() {
-        return idtopico;
-    }
-
-    public void setIdtopico(int idtopico) {
-        this.idtopico = idtopico;
-    }
     int idtopico;
-    
+
+
     Userlogin createuser = new Userlogin();
     Topico criartopico = new Topico();
     Noticia createnot = new Noticia();
 
-    public Noticia getCreatenot() {
-        return createnot;
-    }
 
-    public void setCreatenot(Noticia createnot) {
-        this.createnot = createnot;
-    }
-    
-    
-    
     List<Userlogin> usernameList = new ArrayList<>();
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     
+
     
     public String createUserPub() { //criar Publisher
         
@@ -87,7 +73,9 @@ public class Controler {
     }
     
     public String verifylog(){ //verificação de login
+        
         usernameList = login.listUsername();
+        
         for(int i = 0 ;i<usernameList.size();i++)
          {
              
@@ -96,15 +84,16 @@ public class Controler {
                      if(usernameList.get(i).getTipo()==1) 
                      {
                         
-                         dados.setId(usernameList.get(i).getId());
-                         dados.setTipo(1);
-                         dados.setUsername(createuser.getUsername());
-                         dados.setPassword(createuser.getPassword());
+                         //createuser = login.getUsernameByName(login.outcome()).get(0);
+                         //dados.setId(usernameList.get(i).getId());
+                         //dados.setTipo(1);
+                         //dados.setUsername(createuser.getUsername());
+                         //dados.setPassword(createuser.getPassword());
                           return "MenuPub.xhtml";
                              
                      }
          }
-        return "UserNoExists.xhtml";// se nao vai para index
+        return "UserNoExists.xhtml";// vai para user no exists
     }
 
     public Dados getDados() {
@@ -142,20 +131,58 @@ public class Controler {
         
         return null;
     }
-    public String criarnoticia()
+    public String criarnoticia() //Adicionar Noticia
     {
-
-        createuser = procuraruser(dados);
         
-        createnot.setIduser(createuser);
+        createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+        //createuser = procuraruser(dados);
+        
+        //createnot.setIduser(createuser);
+        
         Date data = new Date();
+        
         createnot.setDatan(data);
         createnot.setIdtop(criartopico);
 
         login.createNoticia(createnot);
         noticiasList = login.getnoticias();
+        
         return "MenuPub.xhtml"; 
     }
+    
+    
+    //IR PARA
+    
+    public String irparaNoticia(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "AdicionarNoticia.xhtml";
+    }
+    
+    public String irparaTopico(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "AdicionarTopico.xhtml";
+    }
+    
+    public String irparaConsultarTopicos(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "ConsultarTopicos.xhtml";
+    }
+    
+    public String irparaConsultarTodasNoticias(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "ConsultarTopicos.xhtml";
+    }
+    
+    
     
     public boolean checktop()
     {
@@ -260,6 +287,22 @@ public class Controler {
         this.criartopico = criartopico;
     }
     
+    public int getIdtopico() {
+        return idtopico;
+    }
+
+    public void setIdtopico(int idtopico) {
+        this.idtopico = idtopico;
+    }
+    
+    
+    public Noticia getCreatenot() {
+        return createnot;
+    }
+
+    public void setCreatenot(Noticia createnot) {
+        this.createnot = createnot;
+    }
     
     
     

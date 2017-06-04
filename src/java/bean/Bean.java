@@ -9,7 +9,9 @@ import BD.Noticia;
 import BD.Topico;
 import BD.Userlogin;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -25,15 +27,27 @@ public class Bean {
     EntityManager em;
    
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
     
-    public String user;
+    public String username;
+    
+    public String outcome(){
+
+		FacesContext fc = FacesContext.getCurrentInstance();
+		this.username = getUsernameParam(fc);
+
+		return username;
+	}
+
+	//obter valor do "f:param" do xhtml
+	public String getUsernameParam(FacesContext fc){
+
+		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+		
+                return params.get("username");
+
+	}
+    
+  
     
     //LOGIN
     public Userlogin createuser(Userlogin create) { 
@@ -80,7 +94,7 @@ public class Bean {
     
     public List<Userlogin> getUsernameByName(String nome) {
         
-        return em.createNamedQuery("Username.findByNome").setParameter("username", nome).getResultList();
+        return em.createNamedQuery("Userlogin.findByUsername").setParameter("username", nome).getResultList();
     }
     
     public List<Userlogin> listUsername(){

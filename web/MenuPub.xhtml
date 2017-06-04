@@ -3,11 +3,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Publisher </title>
-        <h1 align="center">Menu Publisher #{Controler.dados.username}</h1>
+        <h1 align="center">Menu Publisher #{Controler.createuser.username}</h1>
          <h:outputStylesheet name="css/indexcss.css"/> 
  
          
@@ -18,14 +17,27 @@
                
    <div class="menu">
             
-            <a href="AdicionarTopico.xhtml" class="button">Adicionar um Tópico</a>
-            <br></br>
-            <a href="ConsultarTopicos.xhtml" class="button">Consultar Tópicos Existentes</a>
-            <br></br>
-            <a href="AdicionarNoticia.xhtml" class="button">Inserir Notícia</a> 
-            <br></br>
-             <a href="ConsultarTodasNoticias.xhtml" class="button">Consultar todas as Notícias Publicadas</a> 
-            <br></br>
+            
+            <h:form>
+                <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+                
+                <h:commandButton value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+
+                <h:commandButton value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+                
+                <h:commandButton value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+                
+                
+            </h:form>
+            
    </div> 
     </h:body>
 </html>
