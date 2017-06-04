@@ -29,24 +29,41 @@ public class Bean {
 
     
     public String username;
-    public int idnoticia;
+    public String idnoticia;
     
-        public String outcome(){
+    public String outcome(){
 
-		FacesContext fc = FacesContext.getCurrentInstance();
-		this.username = getUsernameParam(fc);
+	FacesContext fc = FacesContext.getCurrentInstance();
+	this.username = getUsernameParam(fc);
 
-		return username;
-	}
+	return username;
+    }
 
-	//obter valor do "f:param" do xhtml
-	public String getUsernameParam(FacesContext fc){
+    //obter valor do "f:param" do xhtml pub/sub
+    public String getUsernameParam(FacesContext fc){
 
 		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
 		
                 return params.get("username");
 
-	}
+    }
+    
+    public String outcomeNoticia(){
+
+	FacesContext fc = FacesContext.getCurrentInstance();
+	this.idnoticia = getUsernameParam(fc);
+
+	return idnoticia;
+    }
+
+    //obter valor do "f:param" do xhtml pub/sub
+    public String getUsernameParamNoticia(FacesContext fc){
+
+		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+		
+                return params.get("idnoticia");
+
+    }
     
   
     
