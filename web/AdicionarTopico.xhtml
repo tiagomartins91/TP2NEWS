@@ -6,17 +6,17 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
    
-        <h:outputStylesheet name="css/style.css"/>  
-        <h:outputStylesheet name="css/pubcss.css"/>  
-        <h:outputStylesheet name="css/indexcss.css"/>  
-        <h:outputStylesheet name="css/footercss.css"/> 
+        <h:outputStylesheet name="css/indexcss.css"/> 
+        <h:outputStylesheet name="css/logincss.css"/>
         
         <title>Adicionar Tópico</title>
-        <h1 align="center">Menu Publisher #{Controler.createuser.username}</h1>
+
         
     </h:head>
     <h:body>
-        
+       
+        <div class="wrapper">
+                    <h1 class="cabecalho">Menu Publisher #{Controler.createuser.username}</h1>
     <div class="topnav">
         <h:form>
                 <h:commandButton value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
@@ -40,8 +40,8 @@
                 </h:commandButton> 
             </h:form>
     </div>
-        
-      <div class="login-page">  
+                    <br></br>
+      <div class="botoes">  
           <div class="topicodiv">
               
               <h:form class="login-form">         
@@ -59,8 +59,6 @@
           </div>
       </div>
         
-        <div class="footer1">    
-            <b>Trabalho realizado por:</b><a> João Saraiva</a>, <a>Fabio Mota</a>, <a> Tiago Martins </a>
-        </div>
+         </div>
     </h:body>
 </html>
