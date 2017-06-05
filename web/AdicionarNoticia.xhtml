@@ -18,52 +18,61 @@
     <h:body>
      
         <div class="wrapper">  
-                  <h1 class="cabecalho">Menu Noticias #{Controler.createuser.username}</h1>
+                  
                 
         <h:form>
-                <h:commandButton value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
-                    <f:param name="username" value="#{Controler.createuser.username}" />
-                </h:commandButton>
             
-                <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
+           <h:commandButton class="btn" value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" /> 
+                </h:commandButton>
+              
+         
+               <h:commandButton class="btn" value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
                 
-                <h:commandButton value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
+                    
+               <h:commandButton  class="btn" value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
-
-                <h:commandButton value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
+                    
+                    
+                <h:commandButton  class="btn" value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
                 
-                <h:commandButton value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
+                    
+             <h:commandButton class="btn"  value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton> 
-            </h:form>
 
+            </h:form>
         
                   <br></br>
         
         
       <div class="botoes">  
           <div class="form">
+              <p class="botoesTitlee"> Inserir Noticia: <br>#{Controler.createuser.username}</br></p>
               
-              <h:form class="login-form">         
-           <h:panelGrid columns="2" border="1">  
+              <h:form class="login-form"> 
+                  
+           <h:panelGrid columns="2">  
            <h:outputLabel value="Topico" />  
            <h:column> 
-               <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+               <h:selectOneMenu value="#{Controler.criartopico.idtopico}"   >
                    <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
                    <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
             </h:selectOneMenu> 
                </h:column> 
            <h:outputLabel value="Inserir Noticia"/>
            <h:inputText value="#{Controler.createnot.conteudo}"/> 
-           <h:commandButton value="Adicionar Noticia" action="#{Controler.criarnoticia()}">
+           
+           <h:commandButton class="botaoInserirNoticias" value="Adicionar Noticia" action="#{Controler.criarnoticia()}">
                 <f:param name="username" value="#{Controler.createuser.username}" />
            </h:commandButton> 
-            </h:panelGrid> 
+            
+           </h:panelGrid> 
         </h:form>
         
           </div>

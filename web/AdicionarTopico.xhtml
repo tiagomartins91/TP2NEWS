@@ -16,35 +16,37 @@
     <h:body>
        
         <div class="wrapper">
-                    <h1 class="cabecalho">Menu Publisher #{Controler.createuser.username}</h1>
-    <div class="topnav">
+                    
+
         <h:form>
-                <h:commandButton value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
+                <h:commandButton class="btn" value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
             
-                <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
+                <h:commandButton class="btn" value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
                 
-                <h:commandButton value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
+                <h:commandButton class="btn" value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
 
-                <h:commandButton value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
+                <h:commandButton class="btn" value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
                 
-                <h:commandButton value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
+                <h:commandButton class="btn" value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton> 
             </h:form>
-    </div>
-                    <br></br>
-      <div class="botoes">  
-          <div class="topicodiv">
-              
-              <h:form class="login-form">         
+
+            <br></br>
+      
+            <div class="botoes">  
+
+          
+              <h:form>
+                  <p class="botoesTitle">Adicionar Tópico: <br>#{Controler.createuser.username} </br></p>
             <h:panelGrid columns="2" >
              
             <h:outputLabel value="Nome do Topico "/>
@@ -57,7 +59,7 @@
               </h:form>
         
           </div>
-      </div>
+
         
          </div>
     </h:body>

@@ -47,7 +47,7 @@ body {
   border: 1px solid #ddd;
   transition: border-width 0.2s ease;
   border-radius: 2px;
-  color: #b3b3b3;
+  color: #4d4d4d;
   font-weight: bold;
 }
 .login input + i.fa {
@@ -112,7 +112,7 @@ body {
   border: 1px solid #ddd;
   transition: border-width 0.2s ease;
   border-radius: 2px;
-  color: #b3b3b3;
+  color: #4d4d4d;
   font-weight: bold;
 }
 
@@ -137,7 +137,7 @@ body {
 
 .botoesTitle{
     
-    color: #444;
+  color: #444;
   font-size: 1.2em;
   font-weight: bold;
   margin: 10px 0 30px 0;
@@ -145,3 +145,27 @@ body {
   padding-bottom: 20px;
     
 }
+
+    .btn {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+
+

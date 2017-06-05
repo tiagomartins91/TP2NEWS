@@ -15,34 +15,34 @@
     </h:head>
     <h:body>
         <div class="wrapper">
-            <h1 class="cabecalho">Menu Publisher #{Controler.createuser.username}</h1>
+            
     <div class="topnav">
         <h:form>
-                <h:commandButton value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
+                <h:commandButton class="btn" value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
 
-                <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
+                <h:commandButton class="btn" value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
                 
-                <h:commandButton value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
+                <h:commandButton class="btn" value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
 
-                <h:commandButton value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
+                <h:commandButton class="btn" value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
                 
-                <h:commandButton value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
+                <h:commandButton class="btn" value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
             </h:form>
     </div>
             <br></br>
         <div class="noticiasTable">  
-          <div class="topicodiv">
-        
+          
+            <p class="botoesTitle">Todas as Noticias: <br> #{Controler.createuser.username} </br> </p>
               <h:dataTable value="#{Controler.noticiasList}" var="o"
     			styleClass="topicos-table"
     			headerClass="topicos-table-header"
@@ -72,7 +72,7 @@
     			</h:column>
 
     		</h:dataTable>
-        </div>
+      
       </div>
         
         
