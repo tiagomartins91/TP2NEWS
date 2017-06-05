@@ -224,12 +224,18 @@ public class Controler {
             return "UltimaNoticiaTopicoSub.xhtml";
     }
     
-    public String NoticiasPorLer()
+    public String irparaNoticiasPorLer()
     {
        createuser = login.getUsernameByName(login.outcome()).get(0);
-       n = login.getnoticiasporler(createuser)M
+       
                
-       return 
+       return "Registados.xhtml";
+    }
+    
+    public List<Noticia> NoticiasPorler()
+    {
+        n = login.getnoticiasporler(createuser);
+        return n ;
     }
     public String irparaEntreDatasSub(){
         

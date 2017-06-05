@@ -84,6 +84,12 @@ public class Bean {
         
         return n;  
     }
+     public List<Noticia> getnoticiasporler(Userlogin createuser)
+     {
+         Query query = em.createQuery( "Select n FROM Noticia n , Subs s , Topico t, Userlogin u WHERE u.id = ?1 and s.lastnews < n.idnoticia and u.id = s.usersubs.id and s.topsubs.idtopico = t.idtopico and t.idtopico = n.idtop.idtopico" );
+         query.setParameter(1,createuser.getId());
+         return query.getResultList();
+     }
     
      public Topico createTopico(Topico create) { 
 
