@@ -4,37 +4,53 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
    
-        <h:outputStylesheet name="css/style.css"/>  
+        <h:outputStylesheet name="css/logincss.css"/>  
    
         
         <title>Última Notícia de um Tópico</title>
     </h:head>
     <h:body>
-        <h1 class="cabecalho">Publisher #{Controler.createuser.username}</h1>
-      <div class="login-page">  
-          <div class="form">
+
+
+          <div class="wrapper">
               
-              <h:form class="login-form">         
+              
+              <h:form>
+                
+                
+                <h:commandButton class="btn" value="Menu Principal" action="index.xhtml"/>
+                <h:commandButton class="btn" value="Subscrever um Tópico" action="#"/>  
+                <h:commandButton class="btn" value="Consultar Noticias entre Datas" action="#"/>
+                <h:commandButton class="btn" value="Consultar Última Noticia de um Tópico" action="#"/>
+                         
+                
+            </h:form>
+          <br></br>
+            
+              
+              <h:form class="botoes">         
              
+                  <p class="botoesTitle">Subcriber: #{Controler.createuser.username}</p>
            <h:outputLabel value="Topico" />  
            <h:column> 
-               <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+               <h:selectOneMenu value="#{Controler.criartopico.idtopico}">
                    <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
                    <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
             </h:selectOneMenu> 
+               <br></br>
+                <br></br>    
                </h:column> 
-           <h:outputLabel value="Notícia"/>
            <h:commandButton value="Ver" action="#{Controler.checkUltimaNoticiaTopicoSub()}">
                <f:param name="username" value="#{Controler.createuser.username}" />
-               <h1>ID Noticia: #{Controler.vernot.idnoticia}</h1>
-               <h1>Conteudo: #{Controler.vernot.conteudo}</h1>
-               <h1>Data: #{Controler.vernot.datan}</h1>
-               <h1>Topico: #{Controler.vernot.idtop.nometopico}</h1>
-               <h1>Autor: #{Controler.vernot.iduser.username}</h1>
+               <h5>ID Noticia: #{Controler.vernot.idnoticia}</h5>
+               <h5>Conteudo: #{Controler.vernot.conteudo}</h5>
+               <h5>Data: #{Controler.vernot.datan}</h5>
+               <h5>Topico: #{Controler.vernot.idtop.nometopico}</h5>
+               <h5>Autor: #{Controler.vernot.iduser.username}</h5>
            </h:commandButton>
             </h:form>
         
           </div>
-      </div>
+ 
     </h:body>
 </html>

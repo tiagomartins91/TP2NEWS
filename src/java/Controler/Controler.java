@@ -251,7 +251,7 @@ public class Controler {
          
          vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
                  
-        return "UltimaNoticiaTopico.xhtml";
+        return "UltimaNoticiaTopicoSub.xhtml";
     
     }
     
