@@ -220,10 +220,11 @@ public class Controler {
     public String irparaUltimaNoticiaSub(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
-        
+            
             return "UltimaNoticiaTopicoSub.xhtml";
     }
     
+ 
     public String irparaEntreDatasSub(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
