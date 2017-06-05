@@ -260,7 +260,6 @@ public class Controler {
     public List<Noticia> NoticiasPorler(){
        
         n = login.getnoticiasporler(createuser);
-        
         return n ;
     }
     
