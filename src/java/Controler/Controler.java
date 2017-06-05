@@ -307,7 +307,9 @@ public class Controler {
        
          if(noticiastopicosList.isEmpty()){
              
-             return "UserExists";
+             createuser = login.getUsernameByName(login.outcome()).get(0);
+             
+             return "ErroCheckTopicoSub.xhtml";
          }
          
          vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
