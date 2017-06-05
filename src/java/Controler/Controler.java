@@ -232,11 +232,15 @@ public class Controler {
        return "Registados.xhtml";
     }
     
-    public List<Noticia> NoticiasPorler()
-    {
+    public List<Noticia> NoticiasPorler(){
+       
         n = login.getnoticiasporler(createuser);
+        
         return n ;
     }
+    
+    
+    
     public String irparaEntreDatasSub(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);

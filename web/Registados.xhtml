@@ -16,33 +16,16 @@
     <h:body>
         <div class="wrapper">
             
-    <div class="topnav">
-        <h:form>
-                <h:commandButton class="btn" value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
-                    <f:param name="username" value="#{Controler.createuser.username}" />
-                </h:commandButton>
-
-                <h:commandButton class="btn" value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
-                    <f:param name="username" value="#{Controler.createuser.username}" />
-                </h:commandButton>
-                
-                <h:commandButton class="btn" value="Consultar Tópicos" action="#{Controler.irparaConsultarTopicos()}">
-                    <f:param name="username" value="#{Controler.createuser.username}" />
-                </h:commandButton>
-
-                <h:commandButton class="btn" value="Inserir Notícia" action="#{Controler.irparaNoticia()}">
-                    <f:param name="username" value="#{Controler.createuser.username}" />
-                </h:commandButton>
-                
-                <h:commandButton class="btn" value="Consultar Todas as Notícias" action="#{Controler.irparaConsultarTodasNoticias()}">
+            <br></br>
+            <h:form>
+                <h:commandButton class="btn" value="Menu Principal" action="#{Controler.irparaMenuSub()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>
             </h:form>
-    </div>
-            <br></br>
         <div class="noticiasTable">  
           
             <p class="botoesTitle">Publisher: #{Controler.createuser.username} </p>
+            
             <h:dataTable value="#{Controler.NoticiasPorler()}" var="o"
     			styleClass="topicos-table"
     			headerClass="topicos-table-header"
@@ -72,7 +55,7 @@
     			</h:column>
 
     		</h:dataTable>
-      
+                
       </div>
         
         

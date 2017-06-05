@@ -48,24 +48,6 @@ public class Bean {
                 return params.get("username");
 
     }
-    
-    public String outcomeNoticia(){
-
-	FacesContext fc = FacesContext.getCurrentInstance();
-	this.idnoticia = getUsernameParam(fc);
-
-	return idnoticia;
-    }
-
-    //obter valor do "f:param" do xhtml
-    public String getUsernameParamNoticia(FacesContext fc){
-
-		Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-		
-                return params.get("idnoticia");
-
-    }
-    
   
     
     //LOGIN
