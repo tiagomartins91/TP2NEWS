@@ -132,9 +132,9 @@ public class Controler {
     public String createTop() //criar topico
     {
         topicosList = login.gettops(); // devolver os top q temos ate agora
-        if(checktop()==true)
-        {
-            return "UserExists.xhtml";
+        if(checktop()==true){
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+            return "TopicoJaExiste.xhtml";
         }
         
         login.createTopico(criartopico);//criar o top na base de dados
@@ -260,8 +260,8 @@ public class Controler {
     public List<Noticia> NoticiasPorler(){
        
         n = login.getnoticiasporler(createuser);
-        
-        return n ;
+       
+       return n;
     }
     
     
