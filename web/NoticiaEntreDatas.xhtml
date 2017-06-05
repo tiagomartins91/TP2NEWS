@@ -7,34 +7,44 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
    
-        <h:outputStylesheet name="css/style.css"/>  
+        <h:outputStylesheet name="css/logincss.css"/>  
    
         
         <title>Notícias Entre Datas</title>
     </h:head>
     <h:body>
         
-      <div class="login-page">  
-          <div class="form">
+      <div class="wrapper">  
+           <h:form>
+                
+                
+                <h:commandButton class="btn" value="Menu Principal" action="SubSemRegisto.xhtml"/>
+                <h:commandButton class="btn" value="Consultar Noticias entre Datas" action="NoticiaEntreDatas.xhtml"/>
+                <h:commandButton class="btn" value="Consultar Última Noticia de um Tópico" action="UltimaNoticiaTopico.xhtml"/>
+                
+            </h:form>
+          <br></br>
               
-              <h:form class="login-form">         
-               <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+              <h:form class="botoesUpdate">    
+                   <p class="botoesTitle">Subscriber Sem Registo</p> 
+               <h:selectOneMenu value="#{Controler.criartopico.idtopico}">
                    <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
                    <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
             </h:selectOneMenu> 
-               <h:outputLabel value="DATA INICIAL"/>
+               <h:outputLabel value=" DATA INICIAL"/>
               <h:inputText value="#{Controler.vernot.datan}">
                   <f:convertDateTime pattern="yyyy-MM-dd" />
               </h:inputText>
                                
-              <h:outputLabel value="DATA Final"/>
+              <h:outputLabel value="DATA FINAL"/>
               <h:inputText value="#{Controler.createnot.datan}">
                   <f:convertDateTime pattern="yyyy-MM-dd" />
               </h:inputText>
             
-           <h:outputLabel value="Notícias"/>
-           <h:commandButton value="Ver" action="#{Controler.mostrarNoticiaBydate()}"/>
-               
+    
+           <h:commandButton value=" Ver" action="#{Controler.mostrarNoticiaBydate()}"/>
+           <br></br>
+             
            <h:dataTable value="#{Controler.n}" var="o"
     			styleClass="topicos-table"
     			headerClass="topicos-table-header"
@@ -68,7 +78,7 @@
        
             </h:form>
         
-          </div>
+         
       </div>
     </h:body>
 </html>

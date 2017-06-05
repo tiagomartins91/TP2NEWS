@@ -14,6 +14,15 @@
     </h:head>
     <h:body>
         
+
+
+<script>
+function myFunction() {
+    alert("Iteste");
+}
+</script>
+        
+        
       <div class="wrapper">  
           <div class="login">
               
@@ -28,7 +37,7 @@
             <h:inputSecret value="#{Controler.createuser.password}" />
        
             </h:panelGrid> 
-            <h:commandButton value="Criar Publisher" action="#{Controler.createUserPub()}"/>
+                  <h:commandButton value="Criar Publisher" action="#{Controler.createUserPub()}" />
             <h:commandButton value="Criar Subscriber" action="#{Controler.createUserSub()}"/>
             <p class="message"> Ja tem conta? <a href="Login.xhtml">Log In</a></p>
         </h:form>
@@ -36,5 +45,6 @@
           </div>
       </div>
     </h:body>
+    
 </html>
 
