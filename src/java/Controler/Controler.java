@@ -205,6 +205,12 @@ public class Controler {
         return false;
     }
     
+    public List<Noticia> MostrarNoticiaBydate()
+    {
+        noticiasList = login.getnoticiasbydate(createnot,vernot);
+        
+        return noticiasList;
+    }
     public Noticia checkUltimaNoticiaTopico(){
         
         

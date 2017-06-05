@@ -109,6 +109,15 @@ public class Bean {
        return query.getResultList();
     }
     
+     public List<Noticia> getnoticiasbydate(Noticia one,Noticia two)
+    {
+        Query query = em.createQuery( "Select n FROM Noticia n WHERE n.datan > ?1 and n.datan < ?2" );
+        query.setParameter(1,one.getDatan() );
+        query.setParameter(2, two.getDatan());
+      // vai buscar as noticias publicadas pelo autor i ! já bomba
+       return query.getResultList();
+    }
+     
     public List<Noticia> getnoticiasID(Noticia  n){
         
         return em.createNamedQuery("Noticia.findByIdnoticia").setParameter("idnoticias", n.getIdnoticia()).getResultList();
