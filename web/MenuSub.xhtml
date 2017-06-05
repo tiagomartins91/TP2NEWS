@@ -26,7 +26,7 @@
                 <f:param name="username" value="#{Controler.createuser.username}" />
             </h:commandButton>
             
-            <h:commandButton value="Logout!" action="index.xhtml">
+            <h:commandButton value="Logout!" action="index.xhtml" onclick="return confirm('Tem a certeza que quer sair?')">
                     
                 </h:commandButton>
          
