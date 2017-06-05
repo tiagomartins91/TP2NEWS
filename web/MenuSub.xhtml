@@ -16,7 +16,9 @@
             <h:form class="botoes">
                 <p class="botoesTitle">Subscriber:#{Controler.createuser.username}</p>
             
-            <h:commandButton value="Subscrever Tópico" action="#"/> 
+            <h:commandButton value="Subscrever Tópico" action="#{Controler.irparaSubscreverTopico()}"> 
+            <f:param name="username" value="#{Controler.createuser.username}" />
+            </h:commandButton> 
             <h:commandButton value="Consultar Noticias entre Datas" action="#{Controler.irparaEntreDatasSub()}">
                 <f:param name="username" value="#{Controler.createuser.username}" />
             </h:commandButton>        

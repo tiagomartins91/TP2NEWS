@@ -35,6 +35,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Topico.findByNometopico", query = "SELECT t FROM Topico t WHERE t.nometopico = :nometopico")})
 public class Topico implements Serializable {
 
+    @OneToMany(mappedBy = "topsubs")
+    private Collection<Subs> subsCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -109,6 +112,15 @@ public class Topico implements Serializable {
     @Override
     public String toString() {
         return "BD.Topico[ idtopico=" + idtopico + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Subs> getSubsCollection() {
+        return subsCollection;
+    }
+
+    public void setSubsCollection(Collection<Subs> subsCollection) {
+        this.subsCollection = subsCollection;
     }
     
 }

@@ -20,15 +20,16 @@
               <h:form class="login-form">     
                 <p align="center" class="botoesTitle">Menu Subscrição</p>
                 <p class="botoesTitle">Subscritor: #{Controler.createuser.username}</p>
-                <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+                <h:selectOneMenu value="#{Controler.topico2.idtopico}"  >
                    <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
                    <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
             </h:selectOneMenu> 
 
            <h:outputLabel value="Topico"/>
-           <h:commandButton value="Subscrever" action="#{Controler.subscrevertopico()}"/>
-
-            </h:form>
+           <h:commandButton value="Subscrever" action="#{Controler.subscrevertopico()}">
+           <f:param name="username" value="#{Controler.createuser.username}" />
+           </h:commandButton>
+           </h:form>
         
           </div>
       </div>

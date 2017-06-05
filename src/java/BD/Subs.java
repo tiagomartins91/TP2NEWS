@@ -9,33 +9,37 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author TiagoMartins
+ * @author Fábio
  */
 @Entity
 @Table(name = "SUBS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Subs.findAll", query = "SELECT s FROM Subs s"),
-    @NamedQuery(name = "Subs.findByIdsub", query = "SELECT s FROM Subs s WHERE s.idsub = :idsub")})
+    @NamedQuery(name = "Subs.findAll", query = "SELECT s FROM Subs s")
+    , @NamedQuery(name = "Subs.findByIdsub", query = "SELECT s FROM Subs s WHERE s.idsub = :idsub")
+    , @NamedQuery(name = "Subs.findByLastnews", query = "SELECT s FROM Subs s WHERE s.lastnews = :lastnews")})
 public class Subs implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "IDSUB")
     private Integer idsub;
+    @Column(name = "LASTNEWS")
+    private Integer lastnews;
     @JoinColumn(name = "TOPSUBS", referencedColumnName = "IDTOPICO")
     @ManyToOne
     private Topico topsubs;
@@ -56,6 +60,14 @@ public class Subs implements Serializable {
 
     public void setIdsub(Integer idsub) {
         this.idsub = idsub;
+    }
+
+    public Integer getLastnews() {
+        return lastnews;
+    }
+
+    public void setLastnews(Integer lastnews) {
+        this.lastnews = lastnews;
     }
 
     public Topico getTopsubs() {

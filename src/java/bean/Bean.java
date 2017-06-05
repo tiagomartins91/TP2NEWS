@@ -86,8 +86,7 @@ public class Bean {
     }
     
      public Topico createTopico(Topico create) { 
-        
-        
+
         em.persist(create);
         
         return create;  
@@ -96,7 +95,13 @@ public class Bean {
     {
        return em.createNamedQuery("Topico.findAll").getResultList();
     }
-     
+      public List<Topico> gettopbyid(Topico i)
+    {
+        Query query = em.createQuery( "Select n FROM Topico n WHERE n.idtopico = ?1" );
+        query.setParameter(1,i.getIdtopico());
+        return query.getResultList();
+    }
+      
     public List<Noticia> getnoticias()
     {
        return em.createNamedQuery("Noticia.findAll").getResultList();

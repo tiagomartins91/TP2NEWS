@@ -38,6 +38,15 @@ public class Controler {
 
     Userlogin createuser = new Userlogin();
     Topico criartopico = new Topico();
+    Topico topico2 = new Topico();
+
+    public Topico getTopico2() {
+        return topico2;
+    }
+
+    public void setTopico2(Topico topico2) {
+        this.topico2 = topico2;
+    }
     Noticia createnot = new Noticia();
     Noticia vernot = new Noticia();
     Subs subscritor = new Subs();
@@ -141,7 +150,7 @@ public class Controler {
     {
         
         createuser = login.getUsernameByName(login.outcome()).get(0);
-     
+       
         Date data = new Date();
         
         createnot.setIduser(createuser);
@@ -222,6 +231,12 @@ public class Controler {
             return "NoticiaEntreDatasSub.xhtml";
     }
     
+       public String irparaSubscreverTopico(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "Subscrevertopico.xhtml";
+    }
     
     
     public boolean checktop()
@@ -265,17 +280,17 @@ public class Controler {
     
     public String subscrevertopico()
     {
-        Userlogin n = login.getUsernameByName("fabio").get(0);
-     
-         
-        Topico t = login.gettops().get(0);
-        
-        subscritor.setTopsubs(t);
-        subscritor.setUsersubs(n);
-        
-        login.subscrevertop(subscritor);
-        Listsubs = login.getsubs();
+                createuser = login.getUsernameByName(login.outcome()).get(0);
+                usernameList = login.listUsername();
+                topicosList = login.gettops();
+                criartopico = login.gettopbyid(topico2).get(0);
+                subscritor.setUsersubs(createuser);
+                subscritor.setTopsubs(criartopico);
+                login.subscrevertop(subscritor);
+                Listsubs = login.getsubs();
+                
         return "Registados.xhtml";
+         
     }
     
     public List<Subs> getallsubs()
