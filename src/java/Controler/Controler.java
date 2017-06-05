@@ -45,7 +45,7 @@ public class Controler {
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     List <Noticia> noticiastopicosList = new ArrayList<>();
-    
+    List<Noticia> n = new ArrayList<>();
 
     
     public String createUserPub() { //criar Publisher
@@ -151,6 +151,14 @@ public class Controler {
         
         return "MenuPub.xhtml"; 
     }
+
+    public List<Noticia> getN() {
+        return n;
+    }
+
+    public void setN(List<Noticia> n) {
+        this.n = n;
+    }
     
     
     //IR PARA
@@ -205,12 +213,14 @@ public class Controler {
         return false;
     }
     
-    public List<Noticia> MostrarNoticiaBydate()
+    public List<Noticia> mostrarNoticiaBydate()
     {
-        noticiasList = login.getnoticiasbydate(createnot,vernot);
         
-        return noticiasList;
+        n = login.getnoticiasbydate(vernot,createnot,criartopico);
+        
+        return n;
     }
+    
     public Noticia checkUltimaNoticiaTopico(){
         
         

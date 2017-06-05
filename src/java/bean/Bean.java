@@ -109,12 +109,13 @@ public class Bean {
        return query.getResultList();
     }
     
-     public List<Noticia> getnoticiasbydate(Noticia one,Noticia two)
+     public List<Noticia> getnoticiasbydate(Noticia one,Noticia two, Topico i)
     {
-        Query query = em.createQuery( "Select n FROM Noticia n WHERE n.datan > ?1 and n.datan < ?2" );
+        Query query = em.createQuery( "Select n FROM Noticia n WHERE (n.datan >= ?1) and (n.datan <= ?2) and ( n.idtop.idtopico = ?3)" );
         query.setParameter(1,one.getDatan() );
-        query.setParameter(2, two.getDatan());
-      // vai buscar as noticias publicadas pelo autor i ! já bomba
+        query.setParameter(2,two.getDatan());
+        query.setParameter(3,i.getIdtopico());
+      
        return query.getResultList();
     }
      
