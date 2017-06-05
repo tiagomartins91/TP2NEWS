@@ -110,11 +110,16 @@ public class Bean {
     }
     
     public List<Noticia> getnoticiasID(Noticia  n){
+        
         return em.createNamedQuery("Noticia.findByIdnoticia").setParameter("idnoticias", n.getIdnoticia()).getResultList();
     }
     
     public List<Noticia> getnoticiasTopico(Topico  idtp){
-        return em.createNamedQuery("Noticia.findByIDTopico").setParameter("idtop", idtp).getResultList();
+        
+         Query query = em.createQuery( "Select n FROM Noticia n WHERE n.idtop.idtopico = ?1" );
+         query.setParameter(1,idtp.getIdtopico() );
+         
+        return query.getResultList();
     }
     
     

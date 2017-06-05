@@ -207,8 +207,9 @@ public class Controler {
     
     public Noticia checkUltimaNoticiaTopico(){
         
+        
+         
          noticiastopicosList = login.getnoticiasTopico(criartopico);
-
        
          //vernot = login.getnoticiasID(login.outcome()).get(0);
                  
