@@ -212,10 +212,29 @@ public class Controler {
     public String irparaMenuSub(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
+            
+            return "MenuSub.xhtml";
+    }
+    public String irparaMenuSub2(){
         
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+            
             return "MenuSub.xhtml";
     }
     
+    public String atualizar(Userlogin createuser)
+    {
+        int lastid = 0 ;
+        createuser = login.getUsernameByName(login.outcome()).get(0);
+        //Listsubs = login.getsubsbyId(createuser);
+        //topicosList = login.gettopbyiduser(createuser);
+        topico2.setIdtopico(1);
+       // lastid = login.lastnews(createuser, topico2);
+       
+        
+        return "Registados.xhtml";
+    }
+
     
     public String irparaUltimaNoticiaSub(){
         

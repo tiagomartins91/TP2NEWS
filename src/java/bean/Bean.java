@@ -90,6 +90,33 @@ public class Bean {
         return query.getResultList();
     }
       
+      public List<Topico> gettopbyiduser(Userlogin i)
+    {
+        Query query = em.createQuery( "Select n FROM Topico n , Subs s WHERE n.idtopico = s.topsubs.idtopico and s.usersubs.id = ?1" );
+        query.setParameter(1,i.getId());
+        return query.getResultList();
+    }  
+      
+  public List<Subs> getsubsbyId(Userlogin i)
+    {
+        Query query = em.createQuery( "Select n FROM Userlogin n , Subs s WHERE n.id = s.usersubs.id and s.usersubs.id = ?1" );
+        query.setParameter(1,i.getId());
+        return query.getResultList();
+    }  
+  public int lastnews(Userlogin u , Topico i)
+  {
+      int valor = 0 ;
+     // SELECT max(n.IDNOTICIA) 
+    //  FROM Noticia n , Topico t , Userlogin u , Subs s
+   //  WHERE u.ID = 202 and u.ID = s.USERSUBS and s.TOPSUBS = t.IDTOPICO and t.IDTOPICO = n.IDTOP ;
+     Query query = em.createQuery( "Select MAX(n.idnoticia) FROM Subs s ,Noticia n , Topico t , Userlogin u WHERE u.id = ?1 and u.id = s.usersubs.id and s.topsubs.idtopico = t.idtopico and n.idtop.idtopico = t.idtopico and t.idtopico = ?2");
+     query.setParameter(1,u.getId());
+     query.setParameter(2,i.getIdtopico());
+     valor = (Integer) query.getSingleResult();
+     return valor;
+  }
+          
+      
     public List<Noticia> getnoticias()
     {
        return em.createNamedQuery("Noticia.findAll").getResultList();
