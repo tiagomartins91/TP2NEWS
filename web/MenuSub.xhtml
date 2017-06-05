@@ -15,12 +15,13 @@
   <div class="wrapper">
             
             <h:form class="botoes">
-                <p class="botoesTitle">Menu Subscriber:<br>#{Controler.createuser.username}</br></p>
+                <p class="botoesTitle">Subscriber:<br>#{Controler.createuser.username}</br></p>
             
             <h:commandButton value="Subscrever Tópico" action="#"/> 
             <h:commandButton value="Consultar Noticias entre Datas" action="#"/> 
-            <h:commandButton value="Consultar Última Noticia de um Tópico" action="#"/>
-
+            <h:commandButton value="Consultar Última Noticia de um Tópico" action="#{Controler.irparaUltimaNoticiaSub()}">
+                <f:param name="username" value="#{Controler.createuser.username}" />
+            </h:commandButton>
          
             </h:form>   
 
