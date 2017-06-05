@@ -190,6 +190,13 @@ public class Controler {
             return "MenuPub.xhtml";
     }
     
+    public String irparaUltimaNoticiaSub(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "UltimaNoticiaTopicoSub.xhtml";
+    }
+    
     
     
     public boolean checktop()
@@ -205,15 +212,38 @@ public class Controler {
         return false;
     }
     
-    public Noticia checkUltimaNoticiaTopico(){
+    public String checkUltimaNoticiaTopico(){
+
+         noticiastopicosList = login.getnoticiasTopico(criartopico);
+         
+         if(noticiastopicosList.isEmpty()){
+             
+             return "ErroCheckTopico.xhtml";
+         }
+         
+         
+         vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
+       
+         
+                 
+        return "UltimaNoticiaTopico.xhtml";
+    
+    }
+    
+    public String checkUltimaNoticiaTopicoSub(){
         
-        
+           createuser = login.getUsernameByName(login.outcome()).get(0);
          
          noticiastopicosList = login.getnoticiasTopico(criartopico);
        
-         //vernot = login.getnoticiasID(login.outcome()).get(0);
+         if(noticiastopicosList.isEmpty()){
+             
+             return "UserExists";
+         }
+         
+         vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
                  
-        return vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
+        return "UltimaNoticiaTopico.xhtml";
     
     }
     

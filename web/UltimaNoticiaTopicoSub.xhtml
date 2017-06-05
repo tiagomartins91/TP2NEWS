@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+   
+        <h:outputStylesheet name="css/style.css"/>  
+   
+        
+        <title>Última Notícia de um Tópico</title>
+    </h:head>
+    <h:body>
+        <h1 class="cabecalho">Publisher #{Controler.createuser.username}</h1>
+      <div class="login-page">  
+          <div class="form">
+              
+              <h:form class="login-form">         
+             
+           <h:outputLabel value="Topico" />  
+           <h:column> 
+               <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+                   <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
+                   <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
+            </h:selectOneMenu> 
+               </h:column> 
+           <h:outputLabel value="Notícia"/>
+           <h:commandButton value="Ver" action="#{Controler.checkUltimaNoticiaTopicoSub()}">
+               <f:param name="username" value="#{Controler.createuser.username}" />
+               <h1>ID Noticia: #{Controler.vernot.idnoticia}</h1>
+               <h1>Conteudo: #{Controler.vernot.conteudo}</h1>
+               <h1>Data: #{Controler.vernot.datan}</h1>
+               <h1>Topico: #{Controler.vernot.idtop.nometopico}</h1>
+               <h1>Autor: #{Controler.vernot.iduser.username}</h1>
+           </h:commandButton>
+            </h:form>
+        
+          </div>
+      </div>
+    </h:body>
+</html>
