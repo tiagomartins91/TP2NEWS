@@ -69,6 +69,22 @@
                         #{c.iduser}
                 </h:column>
             </h:dataTable>
+                        <h:dataTable value = "#{loginControler.getallsubs()}" var = "c"
+                         styleClass = "authorTable"
+                         headerClass = "authorTableHeader"
+                         rowClasses = "authorTableOddRow,authorTableEvenRow"
+                         width = "600">
+                <h:column><f:facet name = "header">  ID  </f:facet>
+                        #{c.idsub}
+                </h:column>
+
+                <h:column><f:facet name = "header">  Nome  </f:facet>
+                        #{c.usersubs.username}
+                </h:column>
+                <h:column><f:facet name = "header">  Tipo  </f:facet>
+                        #{c.topsubs.nometopico}
+                </h:column>
+            </h:dataTable>
         </div>
     </h:body>
 </html>

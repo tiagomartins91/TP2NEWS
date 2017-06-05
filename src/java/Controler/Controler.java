@@ -6,6 +6,7 @@
 package Controler;
 
 import BD.Noticia;
+import BD.Subs;
 import BD.Topico;
 import BD.Userlogin;
 import bean.Bean;
@@ -39,12 +40,13 @@ public class Controler {
     Topico criartopico = new Topico();
     Noticia createnot = new Noticia();
     Noticia vernot = new Noticia();
-
+    Subs subscritor = new Subs();
 
     List<Userlogin> usernameList = new ArrayList<>();
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     List <Noticia> noticiastopicosList = new ArrayList<>();
+    List<Subs> Listsubs = new ArrayList<>();
     List<Noticia> n = new ArrayList<>();
 
     
@@ -237,7 +239,35 @@ public class Controler {
         return "UltimaNoticiaTopico.xhtml";
     
     }
+
+    public Subs getSubscritor() {
+        return subscritor;
+    }
+
+    public void setSubscritor(Subs subscritor) {
+        this.subscritor = subscritor;
+    }
     
+    public String subscrevertopico()
+    {
+        Userlogin n = login.getUsernameByName("fabio").get(0);
+     
+         
+        Topico t = login.gettops().get(0);
+        
+        subscritor.setTopsubs(t);
+        subscritor.setUsersubs(n);
+        
+        login.subscrevertop(subscritor);
+        Listsubs = login.getsubs();
+        return "Registados.xhtml";
+    }
+    
+    public List<Subs> getallsubs()
+    {
+        Listsubs = login.getsubs();
+        return Listsubs;
+    }
     public String checkUltimaNoticiaTopicoSub(){
         
           createuser = login.getUsernameByName(login.outcome()).get(0);

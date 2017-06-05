@@ -6,6 +6,7 @@
 package bean;
 
 import BD.Noticia;
+import BD.Subs;
 import BD.Topico;
 import BD.Userlogin;
 import java.util.List;
@@ -124,6 +125,17 @@ public class Bean {
         return em.createNamedQuery("Noticia.findByIdnoticia").setParameter("idnoticias", n.getIdnoticia()).getResultList();
     }
     
+    public Subs subscrevertop(Subs s){
+
+        em.persist(s);
+        return s;  
+        
+    }
+    
+    public List<Subs> getsubs()
+    {
+        return em.createNamedQuery("Subs.findAll").getResultList();
+    }
     public List<Noticia> getnoticiasTopico(Topico  idtp){
         
          Query query = em.createQuery( "Select n FROM Noticia n WHERE n.idtop.idtopico = ?1" );
