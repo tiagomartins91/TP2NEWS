@@ -11,7 +11,7 @@
         <h:outputStylesheet name="css/logincss.css"/>
    
         
-        <title>Subscrever um Topico</title>
+        <title>Subscrever Tópico</title>
     </h:head>
     <h:body>
         
@@ -21,7 +21,9 @@
                   <h:commandButton class="btn" value="Menu Principal" action="#{Controler.irparaMenuSub()}">
                       <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton> 
-                <h:commandButton class="btn" value="Subscrever um Tópico" action="#"/> 
+                <h:commandButton class="btn" value="Subscrever um Tópico" action="#{Controler.irparaSubscreverTopico()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton> 
                 
                 <h:commandButton class="btn" value="Consultar Noticias entre Datas" action="#{Controler.irparaEntreDatasSub()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
@@ -31,10 +33,8 @@
                 </h:commandButton>
                 <br></br>
                 </h:form>
-                
-              
+                       
               <h:form class="botoes">     
-                <p class="botoesTitle">Menu Subscrição</p>
                 <p class="botoesTitle">Subscritor: #{Controler.createuser.username}</p>
                 <h:outputLabel value="Topico  "/>
                 <h:selectOneMenu value="#{Controler.topico2.idtopico}">
@@ -47,7 +47,6 @@
            <f:param name="username" value="#{Controler.createuser.username}" />
            </h:commandButton>
            </h:form>
-        
 
       </div>
     </h:body>

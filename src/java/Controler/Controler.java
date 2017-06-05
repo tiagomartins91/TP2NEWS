@@ -252,6 +252,21 @@ public class Controler {
         return false;
     }
     
+     public boolean checkSub(Userlogin us, Topico t){
+         
+        Listsubs = login.getsubs();
+        
+        for(int i = 0 ;i<Listsubs.size();i++){
+             
+             if(Listsubs.get(i).getUsersubs().getId()==us.getId() && Listsubs.get(i).getTopsubs().getIdtopico()==t.getIdtopico())
+                 return true;
+            }
+        
+        return false;
+    }
+    
+    
+    
     public String checkUltimaNoticiaTopico(){
 
          noticiastopicosList = login.getnoticiasTopico(criartopico);
@@ -278,18 +293,36 @@ public class Controler {
         this.subscritor = subscritor;
     }
     
-    public String subscrevertopico()
-    {
+    public String subscrevertopico(){
+                
+                if(topico2.getIdtopico()==null){
+                    
+                    createuser = login.getUsernameByName(login.outcome()).get(0);
+                    return "ErroSubscreverTop.xhtml";
+                }
+        
+        
                 createuser = login.getUsernameByName(login.outcome()).get(0);
+                criartopico = login.gettopbyid(topico2).get(0);
                 usernameList = login.listUsername();
                 topicosList = login.gettops();
-                criartopico = login.gettopbyid(topico2).get(0);
+                
+                
+                
+                if(checkSub(createuser,criartopico)==true){
+                    
+                    createuser = login.getUsernameByName(login.outcome()).get(0);
+                    return "TopSubRepetido.xhtml";
+                }
+                
+               
+                
                 subscritor.setUsersubs(createuser);
                 subscritor.setTopsubs(criartopico);
                 login.subscrevertop(subscritor);
                 Listsubs = login.getsubs();
                 
-        return "Registados.xhtml";
+        return "TopicoSubscritoSucesso.xhtml";
          
     }
     

@@ -21,8 +21,9 @@
                   <h:commandButton class="btn" value="Menu Principal" action="#{Controler.irparaMenuSub()}">
                       <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton> 
-                <h:commandButton class="btn" value="Subscrever um Tópico" action="#"/> 
-                
+                  <h:commandButton class="btn" value="Subscrever um Tópico" action="#{Controler.irparaSubscreverTopico()}"> 
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton> 
                 <h:commandButton class="btn" value="Consultar Noticias entre Datas" action="#{Controler.irparaEntreDatasSub()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
                 </h:commandButton>    

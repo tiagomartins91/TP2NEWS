@@ -2,9 +2,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Erro Check Tópico Sub</title>
+        <title>Subscrever Tópico</title>
            <h:outputStylesheet name="css/style.css"/> 
-             <h:outputStylesheet name="css/logincss.css"/>
+           <h:outputStylesheet name="css/logincss.css"/>
         
     </h:head>
     <h:body>
@@ -14,11 +14,11 @@
                      
                         
         <h:form class="botoes">
-            <p class="botoesTitle">Subscriber: #{Controler.createuser.username}</p>
-            <p class="botoesTitle" >Sem notícias para mostrar!</p>
-            <h:commandButton value="Back" action="#{Controler.irparaUltimaNoticiaSub()}">
+            <p class="botoesTitle">Publisher: #{Controler.createuser.username}</p>
+            <p class="botoesTitle" >Tópico  já subscrito!</p>
+            <h:commandButton value="Back" action="#{Controler.irparaSubscreverTopico()}">
                 <f:param name="username" value="#{Controler.createuser.username}" />
-            </h:commandButton> 
+            </h:commandButton>
             <h:commandButton value="Menu Principal" action="#{Controler.irparaMenuSub()}">
                 <f:param name="username" value="#{Controler.createuser.username}" />
             </h:commandButton> 
