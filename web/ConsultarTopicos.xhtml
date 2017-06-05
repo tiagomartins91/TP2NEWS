@@ -15,7 +15,6 @@
     </h:head>
     <h:body>
         <div class="wrapper">
-            <h1 class="cabecalho">Menu Publisher #{Controler.createuser.username}</h1>
    
         <h:form>
                 <h:commandButton class="btn" value="Menu Publisher" action="#{Controler.irparaMenuPub()}">
@@ -44,7 +43,7 @@
             
         <div class="botoes">  
  
-            <p class="botoesTitle">Menu Publisher <br> #{Controler.createuser.username}</br></p>
+            <p class="botoesTitle">Publisher: #{Controler.createuser.username}</p>
         <h:dataTable value="#{Controler.topicosList}" var="o"
     			styleClass="topicos-table"
     			headerClass="topicos-table-header"

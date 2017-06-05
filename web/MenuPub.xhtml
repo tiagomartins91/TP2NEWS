@@ -17,7 +17,8 @@
 
             
             <h:form class="botoes">
-                <p class="botoesTitle">Menu Publisher:<br>#{Controler.createuser.username}</br></p>
+                <p align="center" class="botoesTitle">Menu Publisher</p>
+                <p class="botoesTitle">Publisher: #{Controler.createuser.username}</p>
                 
                 <h:commandButton value="Adicionar Tópico" action="#{Controler.irparaTopico()}">
                     <f:param name="username" value="#{Controler.createuser.username}" />
