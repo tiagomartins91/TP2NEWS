@@ -18,15 +18,54 @@
           <div class="form">
               
               <h:form class="login-form">         
-             
-           <h:outputLabel value="Data Inicial (Ano-Mês-Dia)" />  <input type="date"/>
-           <h:outputLabel value="Data Final (Ano-Mês-Dia)" />  <input type="date"/>
+               <h:selectOneMenu value="#{Controler.criartopico.idtopico}" id="topico"  >
+                   <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
+                   <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
+            </h:selectOneMenu> 
+               <h:outputLabel value="DATA INICIAL"/>
+              <h:inputText value="#{Controler.vernot.datan}">
+                  <f:convertDateTime pattern="yyyy-MM-dd" />
+              </h:inputText>
+                               
+              <h:outputLabel value="DATA Final"/>
+              <h:inputText value="#{Controler.createnot.datan}">
+                  <f:convertDateTime pattern="yyyy-MM-dd" />
+              </h:inputText>
+            
            <h:outputLabel value="Notícias"/>
-           <h:commandButton value="Ver" action="#{Controler.checkUltimaNoticiaTopico()}">
-               <h1>ID Noticia: #{Controler.vernot.idnoticia}</h1>
-               <h1>Conteudo: #{Controler.vernot.conteudo}</h1>
-               <h1>Data: #{Controler.vernot.datan}</h1>
-           </h:commandButton>
+           <h:commandButton value="Ver" action="#{Controler.mostrarNoticiaBydate()}"/>
+               
+           <h:dataTable value="#{Controler.n}" var="o"
+    			styleClass="topicos-table"
+    			headerClass="topicos-table-header"
+    			rowClasses="topicos-table-odd-row,topicos-table-even-row">
+
+    			<h:column>
+    				<f:facet name="header">ID da Notícia</f:facet>
+    				#{o.idnoticia}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">Conteudo</f:facet>
+    				#{o.conteudo}
+    			</h:column>
+                  
+                        <h:column>
+    				<f:facet name="header">Data</f:facet>
+    				#{o.datan}
+    			</h:column>
+                        <h:column>
+    				<f:facet name="header">Nome do Topico</f:facet>
+    				#{o.idtop.nometopico}
+    			</h:column>
+                    <h:column>
+    				<f:facet name="header">Nome do Publisher</f:facet>
+    				#{o.iduser.username}
+    			</h:column>
+
+    		</h:dataTable>
+
+       
             </h:form>
         
           </div>

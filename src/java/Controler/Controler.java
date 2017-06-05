@@ -45,7 +45,7 @@ public class Controler {
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     List <Noticia> noticiastopicosList = new ArrayList<>();
-    
+    List<Noticia> n = new ArrayList<>();
 
     
     public String createUserPub() { //criar Publisher
@@ -151,6 +151,14 @@ public class Controler {
         
         return "MenuPub.xhtml"; 
     }
+
+    public List<Noticia> getN() {
+        return n;
+    }
+
+    public void setN(List<Noticia> n) {
+        this.n = n;
+    }
     
     
     //IR PARA
@@ -232,7 +240,7 @@ public class Controler {
     
     public String checkUltimaNoticiaTopicoSub(){
         
-           createuser = login.getUsernameByName(login.outcome()).get(0);
+          createuser = login.getUsernameByName(login.outcome()).get(0);
          
          noticiastopicosList = login.getnoticiasTopico(criartopico);
        
@@ -246,6 +254,19 @@ public class Controler {
         return "UltimaNoticiaTopico.xhtml";
     
     }
+    
+   
+    
+    public List<Noticia> mostrarNoticiaBydate()
+    {
+        
+        n = login.getnoticiasbydate(vernot,createnot,criartopico);
+        
+        return n;
+    }
+    
+   
+     
     
     
     public List<Userlogin> getusernameregistados() {

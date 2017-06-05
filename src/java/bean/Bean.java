@@ -109,6 +109,16 @@ public class Bean {
        return query.getResultList();
     }
     
+     public List<Noticia> getnoticiasbydate(Noticia one,Noticia two, Topico i)
+    {
+        Query query = em.createQuery( "Select n FROM Noticia n WHERE (n.datan >= ?1) and (n.datan <= ?2) and ( n.idtop.idtopico = ?3)" );
+        query.setParameter(1,one.getDatan() );
+        query.setParameter(2,two.getDatan());
+        query.setParameter(3,i.getIdtopico());
+      
+       return query.getResultList();
+    }
+     
     public List<Noticia> getnoticiasID(Noticia  n){
         
         return em.createNamedQuery("Noticia.findByIdnoticia").setParameter("idnoticias", n.getIdnoticia()).getResultList();
