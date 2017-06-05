@@ -222,17 +222,23 @@ public class Controler {
             return "MenuSub.xhtml";
     }
     
-    public String atualizar(Userlogin createuser)
+    public List<Subs> atualizar(Userlogin createuser)
     {
-        int lastid = 0 ;
-        createuser = login.getUsernameByName(login.outcome()).get(0);
-        //Listsubs = login.getsubsbyId(createuser);
-        //topicosList = login.gettopbyiduser(createuser);
-        topico2.setIdtopico(1);
-       // lastid = login.lastnews(createuser, topico2);
-       
+        int lastid = 0;
         
-        return "Registados.xhtml";
+        
+        createuser = login.getUsernameByName(login.outcome()).get(0);
+        Listsubs = login.getsubsbyId(createuser); //lista das subscrições do createuser
+        for(int i = 0 ;i<Listsubs.size();i++)
+        {
+                topico2 = login.gettopbyidusersub(Listsubs.get(i));
+                lastid = login.lastnews(Listsubs.get(i).getUsersubs(),topico2);
+                Listsubs.get(i).setLastnews(lastid);
+                login.updatesub(Listsubs.get(i));
+        }
+        
+        return Listsubs;
+      //  return "Registados.xhtml";
     }
 
     
