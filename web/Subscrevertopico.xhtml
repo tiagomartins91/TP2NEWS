@@ -8,30 +8,32 @@
     <h:head>
    
         <h:outputStylesheet name="css/style.css"/>  
+        <h:outputStylesheet name="css/logincss.css"/>
    
         
-        <title>Última Notícia de um Tópico</title>
+        <title>Subscrever um Topico</title>
     </h:head>
     <h:body>
         
-      <div class="login-page">  
-          <div class="form">
+      <div class="wrapper">  
+   
               
-              <h:form class="login-form">     
-                <p align="center" class="botoesTitle">Menu Subscrição</p>
+              <h:form class="botoes">     
+                <p class="botoesTitle">Menu Subscrição</p>
                 <p class="botoesTitle">Subscritor: #{Controler.createuser.username}</p>
-                <h:selectOneMenu value="#{Controler.topico2.idtopico}"  >
+                <h:outputLabel value="Topico  "/>
+                <h:selectOneMenu value="#{Controler.topico2.idtopico}">
                    <f:selectItem itemValue="" itemLabel="Selecione um topico"/>  
                    <f:selectItems value="#{Controler.topicosList}" var="o" itemLabel="#{o.nometopico}" itemValue="#{o.idtopico}" />  
             </h:selectOneMenu> 
-
-           <h:outputLabel value="Topico"/>
+                <br></br>
+                <br></br>
            <h:commandButton value="Subscrever" action="#{Controler.subscrevertopico()}">
            <f:param name="username" value="#{Controler.createuser.username}" />
            </h:commandButton>
            </h:form>
         
-          </div>
+
       </div>
     </h:body>
 </html>
