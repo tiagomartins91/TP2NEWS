@@ -16,7 +16,22 @@
     <h:body>
         
       <div class="wrapper">  
-   
+               
+               <h:form>
+                  <h:commandButton class="btn" value="Menu Principal" action="#{Controler.irparaMenuSub()}">
+                      <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton> 
+                <h:commandButton class="btn" value="Subscrever um Tópico" action="#"/> 
+                
+                <h:commandButton class="btn" value="Consultar Noticias entre Datas" action="#{Controler.irparaEntreDatasSub()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>    
+                <h:commandButton class="btn" value="Consultar Última Noticia de um Tópico" action="#{Controler.irparaUltimaNoticiaSub()}">
+                    <f:param name="username" value="#{Controler.createuser.username}" />
+                </h:commandButton>
+                <br></br>
+                </h:form>
+                
               
               <h:form class="botoes">     
                 <p class="botoesTitle">Menu Subscrição</p>
