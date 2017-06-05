@@ -12,12 +12,14 @@
     <h:body>
                
   <div class="wrapper">
+      
+        
             
             <h:form class="botoes">
                 <p class="botoesTitle">Subscriber:#{Controler.createuser.username}</p>
             
             <h:commandButton value="Subscrever Tópico" action="#{Controler.irparaSubscreverTopico()}"> 
-            <f:param name="username" value="#{Controler.createuser.username}" />
+                <f:param name="username" value="#{Controler.createuser.username}" />
             </h:commandButton> 
             <h:commandButton value="Consultar Noticias entre Datas" action="#{Controler.irparaEntreDatasSub()}">
                 <f:param name="username" value="#{Controler.createuser.username}" />
@@ -25,7 +27,11 @@
             <h:commandButton value="Consultar Última Noticia de um Tópico" action="#{Controler.irparaUltimaNoticiaSub()}">
                 <f:param name="username" value="#{Controler.createuser.username}" />
             </h:commandButton>
-            
+           
+            <h:commandButton value="Noticias Por Ler" action="Registados.xhtml">
+            </h:commandButton>
+               
+                
             <h:commandButton value="Logout!" action="index.xhtml" onclick="return confirm('Tem a certeza que quer sair?')">
                     
                 </h:commandButton>

@@ -238,7 +238,7 @@ public class Controler {
             return "NoticiaEntreDatasSub.xhtml";
     }
     
-       public String irparaSubscreverTopico(){
+    public String irparaSubscreverTopico(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
         
