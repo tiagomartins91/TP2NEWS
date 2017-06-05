@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Notícias</title>
+           <h:outputStylesheet name="css/style.css"/> 
+           <h:outputStylesheet name="css/logincss.css"/>
+        
+    </h:head>
+    <h:body>
+             
+        
+   <div class="wrapper">
+                                        
+        <h:form class="botoes">
+            <p class="botoesTitle">Publisher: #{Controler.createuser.username}</p>
+            <p class="botoesTitle" >Sem notícias novas!</p>
+            <h:commandButton value="Menu Principal" action="#{Controler.irparaMenuSub()}">
+                <f:param name="username" value="#{Controler.createuser.username}" />
+            </h:commandButton> 
+        </h:form>   
+
+   </div> 
+    </h:body>
+</html>
