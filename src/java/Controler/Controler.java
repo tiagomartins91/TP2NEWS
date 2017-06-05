@@ -232,7 +232,7 @@ public class Controler {
     
     public String checkUltimaNoticiaTopicoSub(){
         
-          createuser = login.getUsernameByName(login.outcome()).get(0);
+           createuser = login.getUsernameByName(login.outcome()).get(0);
          
          noticiastopicosList = login.getnoticiasTopico(criartopico);
        
