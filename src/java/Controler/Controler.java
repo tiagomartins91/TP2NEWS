@@ -200,11 +200,26 @@ public class Controler {
             return "MenuPub.xhtml";
     }
     
+    public String irparaMenuSub(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "MenuSub.xhtml";
+    }
+    
+    
     public String irparaUltimaNoticiaSub(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
         
             return "UltimaNoticiaTopicoSub.xhtml";
+    }
+    
+    public String irparaEntreDatasSub(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "NoticiaEntreDatasSub.xhtml";
     }
     
     
@@ -270,7 +285,7 @@ public class Controler {
     }
     public String checkUltimaNoticiaTopicoSub(){
         
-          createuser = login.getUsernameByName(login.outcome()).get(0);
+         createuser = login.getUsernameByName(login.outcome()).get(0);
          
          noticiastopicosList = login.getnoticiasTopico(criartopico);
        
@@ -281,7 +296,7 @@ public class Controler {
          
          vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
                  
-        return "UltimaNoticiaTopico.xhtml";
+        return "UltimaNoticiaTopicoSub.xhtml";
     
     }
     
@@ -293,6 +308,15 @@ public class Controler {
         n = login.getnoticiasbydate(vernot,createnot,criartopico);
         
         return n;
+    }
+    
+    public String mostrarNoticiaBydateSub(){
+       
+        createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+        n = login.getnoticiasbydate(vernot,createnot,criartopico);
+        
+        return "NoticiaEntreDatasSub.xhtml";
     }
     
    
