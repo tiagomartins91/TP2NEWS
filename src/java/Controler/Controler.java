@@ -45,7 +45,7 @@ public class Controler {
     List<Topico> topicosList = new ArrayList<>();
     List<Noticia> noticiasList = new ArrayList<>();
     List <Noticia> noticiastopicosList = new ArrayList<>();
-    
+    List<Noticia> n = new ArrayList<>();
 
     
     public String createUserPub() { //criar Publisher
@@ -72,12 +72,23 @@ public class Controler {
         return "index.xhtml";
     }
     
-    public String verifylog(){ //verificação de login
+    public boolean checkusercriado(){ //Verificação 
+        usernameList = login.listUsername();
+  
+        for(int i = 0 ;i<usernameList.size();i++){
+             
+             if(usernameList.get(i).getUsername().equals(createuser.getUsername())) 
+                 return true;
+        }
+        
+        return false;
+    }
+
+    public String verifylog(){ //verificação de login de Pub
         
         usernameList = login.listUsername();
         
-        for(int i = 0 ;i<usernameList.size();i++)
-         {
+        for(int i = 0 ;i<usernameList.size();i++){
              
              if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
                  if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
@@ -88,12 +99,25 @@ public class Controler {
                           return "MenuPub.xhtml";
                              
                      }
-         }
+        }
+        for(int i = 0 ;i<usernameList.size();i++){
+             
+             if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
+                 if(usernameList.get(i).getPassword().equals(createuser.getPassword()))
+                     if(usernameList.get(i).getTipo()==2) 
+                     {
+                        
+                         //createuser = login.getUsernameByName(login.outcome()).get(0);
+                          return "MenuSub.xhtml";
+                             
+                     }
+        }
+        
+        
+        
         return "UserNoExists.xhtml";// vai para user no exists
     }
-
-
-    
+        
     public String createTop() //criar topico
     {
         topicosList = login.gettops(); // devolver os top q temos ate agora
@@ -126,6 +150,14 @@ public class Controler {
         noticiasList = login.getnoticias();
         
         return "MenuPub.xhtml"; 
+    }
+
+    public List<Noticia> getN() {
+        return n;
+    }
+
+    public void setN(List<Noticia> n) {
+        this.n = n;
     }
     
     
@@ -166,6 +198,13 @@ public class Controler {
             return "MenuPub.xhtml";
     }
     
+    public String irparaUltimaNoticiaSub(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "UltimaNoticiaTopicoSub.xhtml";
+    }
+    
     
     
     public boolean checktop()
@@ -181,29 +220,55 @@ public class Controler {
         return false;
     }
     
-    public Noticia checkUltimaNoticiaTopico(){
-        
-         noticiastopicosList = login.getnoticiasTopico(criartopico);
+    public String checkUltimaNoticiaTopico(){
 
-       
-         //vernot = login.getnoticiasID(login.outcome()).get(0);
-                 
-        return vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
-    
-    }
-    
-    public boolean checkusercriado()
-    {
-        usernameList = login.listUsername();
-        for(int i = 0 ;i<usernameList.size();i++)
-         {
+         noticiastopicosList = login.getnoticiasTopico(criartopico);
+         
+         if(noticiastopicosList.isEmpty()){
              
-             if(usernameList.get(i).getUsername().equals(createuser.getUsername()))
-                 return true;
+             return "ErroCheckTopico.xhtml";
          }
-        
-        return false;
+         
+         
+         vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
+       
+         
+                 
+        return "UltimaNoticiaTopico.xhtml";
+    
     }
+    
+    public String checkUltimaNoticiaTopicoSub(){
+        
+          createuser = login.getUsernameByName(login.outcome()).get(0);
+         
+         noticiastopicosList = login.getnoticiasTopico(criartopico);
+       
+         if(noticiastopicosList.isEmpty()){
+             
+             return "UserExists";
+         }
+         
+         vernot = (Noticia) noticiastopicosList.get(noticiastopicosList.size()-1);
+                 
+        return "UltimaNoticiaTopico.xhtml";
+    
+    }
+    
+   
+    
+    public List<Noticia> mostrarNoticiaBydate()
+    {
+        
+        n = login.getnoticiasbydate(vernot,createnot,criartopico);
+        
+        return n;
+    }
+    
+   
+     
+    
+    
     public List<Userlogin> getusernameregistados() {
            usernameList = login.listUsername();
         return usernameList;
