@@ -198,6 +198,14 @@ public class Controler {
             return "MenuPub.xhtml";
     }
     
+    public String irparaMenuSub(){
+        
+            createuser = login.getUsernameByName(login.outcome()).get(0);
+        
+            return "MenuSub.xhtml";
+    }
+    
+    
     public String irparaUltimaNoticiaSub(){
         
             createuser = login.getUsernameByName(login.outcome()).get(0);
