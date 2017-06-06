@@ -111,10 +111,11 @@ public class Bean {
     }  
   
   
-  public int updatesub(Subs s)
+  public int updatesub(Subs s,Topico t)
   {
-     Query query = em.createQuery("UPDATE Subs s SET s.lastnews = ?1");
+     Query query = em.createQuery("UPDATE Subs s SET s.lastnews = ?1 WHERE s.topsubs.idtopico = ?2 ");
      query.setParameter(1,s.getLastnews());
+     query.setParameter(2, t.getIdtopico());
      
      return query.executeUpdate();
   }

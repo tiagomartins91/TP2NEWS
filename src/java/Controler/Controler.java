@@ -222,23 +222,31 @@ public class Controler {
             return "MenuSub.xhtml";
     }
     
-    public List<Subs> atualizar(Userlogin createuser)
+    public String atualizar()
     {
         int lastid = 0;
         
         
         createuser = login.getUsernameByName(login.outcome()).get(0);
+        
         Listsubs = login.getsubsbyId(createuser); //lista das subscrições do createuser
         for(int i = 0 ;i<Listsubs.size();i++)
         {
                 topico2 = login.gettopbyidusersub(Listsubs.get(i));
+              
+                if(login.getnoticiasTopico(topico2).isEmpty())
+                     return "MenuSub.xhtml";
+                else
+                {
                 lastid = login.lastnews(Listsubs.get(i).getUsersubs(),topico2);
                 Listsubs.get(i).setLastnews(lastid);
-                login.updatesub(Listsubs.get(i));
+                login.updatesub(Listsubs.get(i),topico2);
+                lastid=0;
+                }
         }
         
-        return Listsubs;
-      //  return "Registados.xhtml";
+        return "MenuSub.xhtml";
+      
     }
 
     
@@ -361,6 +369,7 @@ public class Controler {
                 
                 subscritor.setUsersubs(createuser);
                 subscritor.setTopsubs(criartopico);
+                subscritor.setLastnews(0);
                 login.subscrevertop(subscritor);
                 Listsubs = login.getsubs();
                 
